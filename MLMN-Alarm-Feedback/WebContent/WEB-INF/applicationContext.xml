@@ -1,0 +1,858 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+   						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   						http://www.springframework.org/schema/aop 
+   						http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">  	
+  <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName">
+		<value>java:/vmsc6_alarm</value>
+		</property>
+</bean> 
+	<bean id="coreInventory" class="inventory.core.IN_CoreService" />
+	<bean id="aL_CoreService" class="vn.com.vhc.alarm.core.AL_CoreService" />
+<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+      <property name="configLocation" value="WEB-INF/sqlmap-config.xml" />
+      <property name="dataSource" ref="dataSource" />
+   </bean>
+   
+<bean id="working_typesDao" class="dao.W_WORKING_TYPESDAOImpl">
+      <property name="sqlMapClient" ref="sqlMapClient" />
+   </bean>
+   
+<bean id="working_managementDao" class="dao.W_WORKING_MANAGEMENTSDAOImpl">
+      <property name="sqlMapClient" ref="sqlMapClient" />
+   </bean>
+
+<bean id="attachmentDao" class="dao.M_FILE_ATTACHMENTDAOImpl">
+      <property name="sqlMapClient" ref="sqlMapClient" />
+   </bean>
+   
+<bean id="processesDao" class="dao.W_WORKING_PROCESSESDAOImpl">
+      <property name="sqlMapClient" ref="sqlMapClient" />
+   </bean>
+   
+<bean id="feedbacksDao" class="dao.W_WORKING_FEEDBACKSDAOImpl">
+      <property name="sqlMapClient" ref="sqlMapClient" />
+   </bean>
+
+<bean id="alertUsersDao" class="dao.A_ALERT_USERSDAOImpl">
+      <property name="sqlMapClient" ref="sqlMapClient" />
+   </bean>
+   
+<bean id="sysParameterDao" class="dao.SYS_PARAMETERDAOImpl">
+      <property name="sqlMapClient" ref="sqlMapClient" />
+   </bean>
+   
+      
+<bean id="mDepartmentDao" class="dao.MDepartmentDAOImpl">
+      <property name="sqlMapClient" ref="sqlMapClient" />
+   </bean>
+   
+<bean id="sysGroupUserDao" class="dao.SysGroupUserDAOImpl">
+      <property name="sqlMapClient" ref="sqlMapClient" />
+   </bean>
+   
+<bean id="sysMenuDao" class="dao.SysMenuDAOImpl">
+      <property name="sqlMapClient" ref="sqlMapClient" />
+   </bean>
+   
+   <bean id="sysDefineSmsEmailDAO" class="dao.SysDefineSmsEmailDAOImpl">
+      <property name="sqlMapClient" ref="sqlMapClient" />
+   </bean>
+   
+   
+  
+<bean id="sysResponsibilitiesDao" class="dao.SysResponsibilitiesDAOImpl">
+      <property name="sqlMapClient" ref="sqlMapClient" />
+   </bean>
+
+<bean id="sysUserRolesDao" class="dao.SysUserRolesDAOImpl">
+      <property name="sqlMapClient" ref="sqlMapClient" />
+   </bean>
+   
+<bean id="sysUsersDao" class="dao.SysUsersDAOImpl">
+      <property name="sqlMapClient" ref="sqlMapClient" />
+   </bean>
+   
+<bean id="warningPSCoreIPBBDAO" class="dao.WarningPSCoreIPBBDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="mDepartmentDAO" class="dao.MDepartmentDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="VHProvinceDao" class="dao.VHProvincesCodeDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="FbDeptPlacesDAO" class="dao.FbDeptPlacesDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="sysUsersCogencyLevelDao" class="dao.SysUsersCogencyLevelDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="vRpDyAccNw3GDAO" class="dao.VRpDyAccNw3GDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="vRpDyAccNwCoreCsDAO" class="dao.VRpDyAccNwCoreCsDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="fbProcessDAO" class="dao.FbProcessDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="fbProcessDetailDAO" class="dao.FbProcessDetailDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="FbTypeDAO" class="dao.FbTypeDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="alShiftDAO" class="dao.AlShiftDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="vAlHCellDAO" class="dao.VAlHCellDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="vAlHBscDAO" class="dao.VAlHBscDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="vHBscProvinceDAO" class="dao.VHBscProvinceDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="hProvincesCodeDAO" class="dao.HProvincesCodeDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="hWardsDAO" class="dao.HWardsDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="cHighlightConfigsDAO" class="dao.CHighlightConfigsDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="fbRpProcessDAO" class="dao.FbRpProcessDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="cableAttributesMasterDAO" class="dao.CableAttributesMasterDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="cableLineAttributesDAO" class="dao.CableLineAttributesDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="cableLineDAO" class="dao.CableLineDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="cableTypeDAO" class="dao.CableTypeDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="cableTransmissionDAO" class="dao.CableTransmissionDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="cableParameterDAO" class="dao.CableParameterDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="vAlHRncDAO" class="dao.VAlHRncDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="hAlDyTransTypeDAO" class="dao.HAlDyTransTypeDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="vHCell3GDAO" class="dao.VHCell3GDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="cServerTelnet" class="dao.CSeversTelnetDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="hBscDao" class="dao.HBscDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="HRouterDAO" class="dao.HRouterDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="RawFileDAO" class="dao.RawFileDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="ImportMappingDAO" class="dao.ImportMappingDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="filePatternDAO" class="dao.FilePatternDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="vRbDyQualityNetworkDAO" class="dao.VRbDyQualityNetworkDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="DyQualityNetworkDAO" class="dao.DyQualityNetworkDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="hQualityNetworkDAO" class="dao.HQualityNetworkDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="VRpDyMscSummaryDAO" class="dao.VRpDyMscSummaryDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="VRpDyMscMgwSummaryDAO " class="dao.VRpDyMscMgwSummaryDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="hAlTransTypeDAO" class="dao.HAlTransTypeDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="HContactNumberDAO" class="dao.HContactNumberDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="hAlTransErrorTypeDAO" class="dao.HAlTransErrorTypeDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="VRpDyVt2GDAO" class="dao.VRpDyVt2GDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="cSystemConfigsDAO" class="dao.CSystemConfigsDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="hsgsnDAO" class="dao.HsgsnDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="hggsnDAO" class="dao.HggsnDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="vAlHMscDAO" class="dao.VAlHMscDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="coreLogDAO" class="dao.CoreLogDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="scheduleServiceDAO" class="dao.ScheduleServiceDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="convertLogDao" class="dao.ConvertLogDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="importLogDao" class="dao.ImportLogDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+
+<bean id="fbVipDao" class="dao.FbVipDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="plsqlErrorLogDAO" class="dao.PlsqlErrorLogDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="schedulejoblogDAO" class="dao.SchedulerJobLogDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="schedulejobDAO" class="dao.SchedulerJobsDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="datafileDAO" class="dao.dbadatafilesDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="freespaceDAO" class="dao.dbafreespaceDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="cableTransmissionE1DAO" class="dao.CableTransmissionE1DAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="cableET4MasterDAO" class="dao.CableET4MasterDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="cableOdfTypesDAO" class="dao.CableOdfTypesDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="cableOdfManagementsDAO" class="dao.CableOdfManagementsDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="CableDropEt4directionDAO" class="dao.CableDropEt4directionDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="CableDropEt4tlDAO" class="dao.CableDropEt4tlDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="hContactNumberDao" class="dao.HContactNumberDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="VAlShiftCalendarDao" class="dao.VAlShiftCalendarDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="AlShiftCalendarDao" class="dao.AlShiftCalendarDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="VAlShiftLeaderCalendarDAO" class="dao.VAlShiftLeaderCalendarDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="AlShiftCalendarTempDAO" class="dao.AlShiftCalendarTempDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="Cabledropet4tlmgwDAO" class="dao.Cabledropet4tlmgwDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="Cabledropet4tpDAO" class="dao.Cabledropet4tpDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="alShiftVendorSupportDAO" class="dao.AlShiftVendorSupportDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="alShiftFesDAO" class="dao.AlShiftFesDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="VRpHrBscCssrDAO" class="dao.VRpHrBscCssrDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="VRpHrCellCssrDAO" class="dao.VRpHrCellCssrDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="assetsTypesDAO" class="dao.AssetsTypesDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="assetsManagementsDAO" class="dao.AssetsManagementsDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="assetsWarrantyDAO" class="dao.AssetsWarrantyDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="asImportWarehouseDAO" class="dao.AsImportWarehouseDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="VRpDySgsnSummaryDAO" class="dao.VRpDySgsnSummaryDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="asExportWarehouseDao" class="dao.AsExportWarehouseDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="costDetailDAO" class="dao.CostDetailDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="costExpensesDAO" class="dao.CostExpensesDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="costPlanDAO" class="dao.CostPlanDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="assetsInventoryingDAO" class="dao.AssetsInventoryingDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="costWorkDAO" class="dao.CostWorkDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="sysLogDAO" class="dao.SysLogDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="vassetsImportWarehouseDAO" class="dao.VAssetsImportWarehouseDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean> 
+
+<bean id="AsImportWarehouseTmpDAO" class="dao.AsImportWarehouseTmpDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean> 
+
+
+<bean id="asProposedWarehouseDAO" class="dao.AsProposedWarehouseDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean> 
+
+<bean id="asCardsDAO" class="dao.AsCardsDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean> 
+
+
+
+<bean id="isoAssetTypeDAO" class="dao.IsoAssetTypeDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean> 
+
+<bean id="isoInventoryDAO" class="dao.IsoInventoryDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="hProvinceFbDAO" class="dao.HProvinceFbDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean> 
+
+<!-- Du an Alarm C6 Author: VanAnhCT, Date: 30/08/2013 -->
+<bean id="vAlWarningSystemDAO" class="dao.VAlWarningSystemDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="alAlarmWorksDAO" class="dao.AlAlarmWorksDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="alAlarmTypesDAO" class="dao.AlAlarmTypesDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="alCommandDangerousDAO" class="dao.AlCommandDangerousDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="alHandingLibraryDAO" class="dao.AlHandingLibraryDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="dyAlDetailFinishDAO" class="dao.DyAlDetailFinishDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="dyAlDetailFinishQualityDAO" class="dao.DyAlDetailFinishQualityDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="dyAlDetailNonFinishDAO" class="dao.DyAlDetailNonFinishDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="dyAlDetailTotalQualityDAO" class="dao.DyAlDetailTotalQualityDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="rAlarmLogDAO" class="dao.RAlarmLogDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="cTableConfigDAO" class="dao.CTableConfigDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="sysUserAreaDAO" class="dao.SysUserAreaDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="sysUserEquipmentNameDAO" class="dao.SysUserEquipmentNameDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="isoLicenseSoftDAO" class="dao.IsoLicenseSoftDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="isoPortCardDAO" class="dao.IsoPortCardDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="cConfigAlarmTypeDAO" class="dao.CConfigAlarmTypeDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+  
+<bean id="isoInventoryHistoryDAO" class="dao.IsoInventoryHistoryDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="isoInventoryRemoveDAO" class="dao.IsoInventoryRemoveDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="isoSupportDAO" class="dao.IsoSupportDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean> 
+
+<bean id="isoLicenseHardDAO" class="dao.IsoLicenseHardDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>  
+
+<bean id="smsContentsDAO" class="dao.SmsContentsDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean> 
+
+<bean id="sysFilesDAO" class="dao.SysFilesDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>    
+
+<bean id="rAlarmLogTempDAO" class="dao.RAlarmLogTempDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>  
+
+<bean id="sysBlacklistDAO" class="dao.SysBlacklistDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean> 
+
+<bean id="vRpDyTrxTotalDAO" class="dao.VRpDyTrxTotalDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean> 
+
+<bean id="vRpDyTrxDAO" class="dao.VRpDyTrxDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean> 
+
+<bean id="cTelnetServersDAO" class="dao.CTelnetServersDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean> 
+
+
+<bean id="hCellDAO" class="dao.HCellDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="vRpHrSite2g3gDAO" class="dao.VRpHrSite2g3gDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean> 
+
+<bean id="alMonitorSiteDAO" class="dao.AlMonitorSiteDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean> 
+
+<bean id="alMonitorTemperatureSiteDAO" class="dao.AlMonitorTemperatureSiteDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean> 
+
+<bean id="rpHrSite2g3gDAO" class="dao.RpHrSite2g3gDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean> 
+<bean id="alManageCrCddDAO" class="dao.AlManageCrCddDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean> 
+
+<bean id="scheduleSendMailDAO" class="dao.ScheduleSendMailDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean> 
+
+<bean id="alManageProjectDAO" class="dao.AlManageProjectDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean> 
+
+<bean id="alManageOnAirDAO" class="dao.AlManageOnAirDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean> 
+
+<bean id="alDyRpFinishRateDAO" class="dao.AlDyRpFinishRateDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean> 
+
+<bean id="vAlHrFinishRateDAO" class="dao.VAlHrFinishRateDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean> 
+
+<bean id="alHrWarningByAlarmClassDAO" class="dao.AlHrWarningByAlarmClassDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean> 
+
+<bean id="alDyWarningByAlarmClassDAO" class="dao.AlDyWarningByAlarmClassDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="alDyWarningByAlarmNameDAO" class="dao.AlDyWarningByAlarmNameDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="alHrWarningByAlarmNameDAO" class="dao.AlHrWarningByAlarmNameDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="alHrNonFinishByAlClassDAO" class="dao.AlHrNonFinishByAlClassDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="alDyNonFinishByAlClassDAO" class="dao.AlDyNonFinishByAlClassDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="vAlRbLossPowerDAO" class="dao.VAlRbLossPowerDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="vAlRbLossConfigurationDAO" class="dao.VAlRbLossConfigurationDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="dyReportLosspowerByTeamDAO" class="dao.DyReportLosspowerByTeamDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="dyReportLosspowerByDayDAO" class="dao.DyReportLosspowerByDayDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="alDyRpFlutterPowerDAO" class="dao.AlDyRpFlutterPowerDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="vAlAlarmLogDAO" class="dao.VAlAlarmLogDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="alDyRpErrorPowerDAO" class="dao.AlDyRpErrorPowerDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="alDyMblAblLogDAO" class="dao.AlDyMblAblLogDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="vAlRbLossAntennaDAO" class="dao.VAlRbLossAntennaDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="alDyRpDip3GDAO" class="dao.AlDyRpDip3GDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="vRlAlarmLog3GDAO" class="dao.VRlAlarmLog3GDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="vAlRbLossConfig3GDAO" class="dao.VAlRbLossConfig3GDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="alDyRpDipDAO" class="dao.AlDyRpDipDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="alDyRpErrorDipDAO" class="dao.AlDyRpErrorDipDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="vAlRbLossComunicationDAO" class="dao.VAlRbLossComunicationDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="alWorkCalendarDAO" class="dao.AlWorkCalendarDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<!-- <bean id="VRpipbbdataDAO" class="dao.VRpipbbdataDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean> -->
+<bean id="SysMailParameterMasterDAO" class="dao.SysMailParameterMasterDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="isoInventoryTempDAO" class="dao.IsoInventoryTempDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="alManageProjectTrackDAO" class="dao.AlManageProjectTrackDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="vRpDyTrxTotal3gDAO" class="dao.VRpDyTrxTotal3gDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="vRpDyTrx3gDAO" class="dao.VRpDyTrx3gDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="alManageBacklogDAO" class="dao.AlManageBacklogDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+
+<bean id="rAlarmRouterLogDAO" class="dao.RAlarmRouterLogDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="rAlarmCsiLogDAO" class="dao.RalarmCsiLogDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="wWorkingAtShiftDAO" class="dao.WWorkingAtShiftDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="VRpHrEBscLoad3gOnlineDAO" class="dao.VRpHrEBscLoad3gOnlineDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="VRpHrEBscLoadOnlineDAO" class="dao.VRpHrEBscLoadOnlineDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="VRpHrNLoadOnlineDAO" class="dao.VRpHrNLoadOnlineDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="rAlarmLossPowerLogDAO" class="dao.RAlarmLossPowerLogDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="rAlarmOperationLogDAO" class="dao.RAlarmOperationLogDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="dyTrxDAO" class="dao.DyTrxDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="dyTrxNewDAO" class="dao.DyTrxNewDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="dyTrxDownDAO" class="dao.DyTrxDownDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="cableTransmissionPartnersDAO" class="dao.CableTransmissionPartnersDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="cableSwitchboardDAO" class="dao.CableSwitchboardDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<!-- Cham diem KPIs -->
+<bean id="VRpDySiteDeptsDAO" class="dao.VRpDySiteDeptsDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="VRpDySiteGroupsDAO" class="dao.VRpDySiteGroupsDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="VRpDySiteTeamsDAO" class="dao.VRpDySiteTeamsDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="VRpDySiteGroupsCausbyDAO" class="dao.VRpDySiteGroupsCausbyDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="VHSiteLevelThDAO" class="dao.VHSiteLevelThDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="RAlarmLogIpbbDAO" class="dao.RAlarmLogIpbbDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="alShiftAssessDAO" class="dao.AlShiftAssessDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="VRpDyIsoUtilityDAO" class="dao.VRpDyIsoUtilityDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="SysStandardizedErrorDAO" class="dao.SysStandardizedErrorDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="SysStandardUCTTDAO" class="dao.SysStandardUCTTDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="HrAlNonFinishQualityDAO" class="dao.HrAlNonFinishQualityDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="HrAlFinishQualityDAO" class="dao.HrAlFinishQualityDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="HrAlDetaiTotalQualityDAO" class="dao.HrAlDetaiTotalQualityDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="SysMailParameterDAO" class="dao.SysMailParameterDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="SysReportBlockDAO" class="dao.SysReportBlockDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="SysParametersDAO" class="dao.SysParametersDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="VDyIpbbLinkDAO" class="dao.VDyIpbbLinkDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="DyTaiThietBiDAO" class="dao.DyTaiThietBiDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="WkTaiThietBiDAO" class="dao.WkTaiThietBiDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="MnTaiThietBiDAO" class="dao.MnTaiThietBiDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="AlAlarmWorkDetailsDAO" class="dao.AlAlarmWorkDetailsDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="VRpHrFeedbackDAO" class="dao.VRpHrFeedbackDAOImpl">
+   <property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="VRpDyIbcDAO" class="dao.VRpDyIbcDAOImpl">
+	<property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="VRpIbc3gDAO" class="dao.VRpIbc3gDAOImpl">
+	<property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+<bean id="QldnDonGiaDienDAO" class="dao.QldnDonGiaDienDAOImpl">
+	<property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="QldnDonViThuHuongDAO" class="dao.QldnDonViThuHuongDAOImpl">
+	<property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="QldnPhanBoChiPhiDAO" class="dao.QldnPhanBoChiPhiDAOImpl">
+	<property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="QldnQlMatBangDAO" class="dao.QldnQlMatBangDAOImpl">
+	<property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="QldnThongTinMayNoDAO" class="dao.QldnThongTinMayNoDAOImpl">
+	<property name="sqlMapClient" ref="sqlMapClient" />
+	
+</bean>
+<bean id="QldnThongTinTramDAO" class="dao.QldnThongTinTramDAOImpl">
+	<property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="QldnTramTTDienDAO" class="dao.QldnTramTTDienDAOImpl">
+	<property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="QldnTramTTNhienLieuDAO" class="dao.QldnTramTTNhienLieuDAOImpl">
+	<property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="QldnUploadLogDAO" class="dao.QldnUploadLogDAOImpl">
+	<property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+<bean id="QldnLossPowerDAO" class="dao.QldnLossPowerDAOImpl">
+	<property name="sqlMapClient" ref="sqlMapClient" />
+</bean>
+
+</beans>

@@ -1,0 +1,268 @@
+<!DOCTYPE sqlMapConfig
+        PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"
+        "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+<sqlMapConfig> 
+	<settings useStatementNamespaces="true"  />
+    <sqlMap resource="vo/W_WORKING_TYPES_SqlMap.xml" />
+    <sqlMap resource="vo/W_WORKING_MANAGEMENTS_SqlMap.xml" />
+    <sqlMap resource="vo/M_FILE_ATTACHMENT_SqlMap.xml" />
+    <sqlMap resource="vo/W_WORKING_PROCESSES_SqlMap.xml" />
+    <sqlMap resource="vo/W_WORKING_FEEDBACKS_SqlMap.xml" />
+    <sqlMap resource="vo/A_ALERT_USERS_SqlMap.xml" />
+    <sqlMap resource="vo/SYS_PARAMETER_SqlMap.xml" />
+    <sqlMap resource="vo/M_DEPARTMENT_SqlMap.xml" />
+    <sqlMap resource="vo/SYS_GROUP_USER_SqlMap.xml" />
+    <sqlMap resource="vo/SYS_MENU_SqlMap.xml" />
+    <sqlMap resource="vo/SYS_RESPONSIBILITIES_SqlMap.xml" />
+    <sqlMap resource="vo/SYS_USER_ROLES_SqlMap.xml" />
+    <sqlMap resource="vo/SYS_USERS_SqlMap.xml" />
+    <sqlMap resource="vo/SYS_USERS_COGENCY_LEVEL_SqlMap.xml" />
+    
+    <sqlMap resource="vo/V_H_PROVINCES_CODE_SqlMap.xml" />
+    <sqlMap resource="vo/FB_DEPT_PLACES_SqlMap.xml" />
+    <sqlMap resource="vo/V_RP_DY_ACC_NW_3G_SqlMap.xml" />
+    <sqlMap resource="vo/V_RP_DY_ACC_NW_CORE_CS_SqlMap.xml" />
+    <sqlMap resource="vo/WARNING_PSCORE_IPBB_SqlMap.xml" />
+    <sqlMap resource="vo/V_AL_WARNING_SYSTEM_SqlMap.xml" />
+    
+    <sqlMap resource="vo/FB_PROCESS_SqlMap.xml" />
+    <sqlMap resource="vo/FB_PROCESS_DETAIL_SqlMap.xml" />
+    <sqlMap resource="vo/FB_TYPE_SqlMap.xml" />
+    <sqlMap resource="vo/AL_SHIFT_SqlMap.xml" />
+    
+    <sqlMap resource="vo/V_AL_H_BSC_SqlMap.xml" />
+    <sqlMap resource="vo/V_AL_H_CELL_SqlMap.xml" />
+    
+     
+    <sqlMap resource="vo/V_H_BSC_PROVINCE_SqlMap.xml" />
+    <sqlMap resource="vo/H_PROVINCES_CODE_SqlMap.xml" />
+    <sqlMap resource="vo/H_WARDS_SqlMap.xml" />
+    
+     <sqlMap resource="vo/C_HIGHLIGHT_CONFIGS_SqlMap.xml" />
+      
+     <sqlMap resource="vo/FB_RP_PROCESS_SqlMap.xml" />
+     <sqlMap resource="vo/CABLE_ATTRIBUTES_MASTER_SqlMap.xml" />
+     <sqlMap resource="vo/CABLE_LINE_ATTIBUTES_SqlMap.xml" />
+     <sqlMap resource="vo/CABLE_LINE_SqlMap.xml" />
+     <sqlMap resource="vo/CABLE_TYPE_SqlMap.xml" />
+     <sqlMap resource="vo/CABLE_TRANSMISSION_SqlMap.xml" />
+     <sqlMap resource="vo/CABLE_PARAMETER_SqlMap.xml" />
+     
+     <sqlMap resource="vo/V_AL_H_RNC_SqlMap.xml" />
+     <sqlMap resource="vo/H_AL_TRANS_TYPE_SqlMap.xml" />
+     <sqlMap resource="vo/V_H_CELL_3G_SqlMap.xml" />
+     <sqlMap resource="vo/C_SERVERS_TELNET_SqlMap.xml" />
+     
+     <sqlMap resource="vo/H_BSC_SqlMap.xml" />
+     <sqlMap resource="vo/H_ROUTER_SqlMap.xml" />
+     
+     <sqlMap resource="vo/C_FILE_PATTERNS_SqlMap.xml" />
+     <sqlMap resource="vo/I_IMPORT_MAPPING_SqlMap.xml" />
+     <sqlMap resource="vo/C_RAW_FILES_SqlMap.xml" />
+     
+     <sqlMap resource="vo/V_RP_DY_MSC_MGW_SUMMARY_SqlMap.xml" />
+     <sqlMap resource="vo/V_RP_DY_MSC_SUMMARY_SqlMap.xml" />
+     <sqlMap resource="vo/V_RP_DY_SGSN_SUMMARY_SqlMap.xml" />
+     
+     <sqlMap resource="vo/V_RP_DY_QUALITY_NETWORK_SqlMap.xml" />
+     <sqlMap resource="vo/DY_QUALITY_NETWORK_SqlMap.xml" />
+     <sqlMap resource="vo/H_QUALITY_NETWORK_SqlMap.xml" />
+    <sqlMap resource="vo/V_RP_DY_VT_2G_SqlMap.xml" />
+   
+    <sqlMap resource="vo/H_AL_TRANS_ERROR_TYPE_SqlMap.xml" />
+    
+    <sqlMap resource="vo/C_SYSTEM_CONFIGS_SqlMap.xml" />
+  
+    <sqlMap resource="vo/H_GGSN_SqlMap.xml" />
+    <sqlMap resource="vo/H_SGSN_SqlMap.xml" />
+    <sqlMap resource="vo/V_AL_H_MSC_SqlMap.xml" />
+    
+    <sqlMap resource="vo/C_CORE_LOGS_SqlMap.xml" />
+    <sqlMap resource="vo/I_FILE_CONVERT_LOGS_SqlMap.xml" />
+    <sqlMap resource="vo/I_FILE_IMPORT_LOGS_SqlMap.xml" />
+	<sqlMap resource="vo/FB_VIP_SqlMap.xml" />
+	<sqlMap resource="vo/C_PLSQL_ERROR_LOGS_SqlMap.xml" /> 
+    <sqlMap resource="vo/DBA_SCHEDULER_JOB_LOG_SqlMap.xml" />
+    <sqlMap resource="vo/DBA_SCHEDULER_JOBS_SqlMap.xml" />
+    <sqlMap resource="vo/DBA_DATA_FILES_SqlMap.xml" />
+    <sqlMap resource="vo/DBA_FREE_SPACE_SqlMap.xml" />
+     
+      <sqlMap resource="vo/CABLE_TRANSMISSION_E1_SqlMap.xml" />
+      <sqlMap resource="vo/CABLE_ET4_MASTER_SqlMap.xml" />
+      <sqlMap resource="vo/CABLE_ODF_TYPES_SqlMap.xml" />
+      <sqlMap resource="vo/CABLE_ODF_MANAGEMENTS_SqlMap.xml" />
+      
+      <sqlMap resource="vo/CABLE_DROP_ET4_DIRECTIONS_SqlMap.xml" />
+      
+      <sqlMap resource="vo/CABLE_DROP_ET4_TL_SqlMap.xml" />
+      <sqlMap resource="vo/H_CONTACT_NUMBER_SqlMap.xml" />
+      <sqlMap resource="vo/V_AL_SHIFT_CALENDAR_SqlMap.xml" />
+      <sqlMap resource="vo/AL_SHIFT_CALENDAR_SqlMap.xml" />
+      <sqlMap resource="vo/AL_SHIFT_CALENDAR_TEMP_SqlMap.xml" />
+      <sqlMap resource="vo/AL_SHIFT_LEADER_CALENDAR_SqlMap.xml" />
+      <sqlMap resource="vo/CABLE_DROP_ET4_TLMGW_SqlMap.xml" />
+      <sqlMap resource="vo/CABLE_DROP_ET4_TP_SqlMap.xml" />
+    
+      <sqlMap resource="vo/AL_SHIFT_FES_SqlMap.xml" />
+      <sqlMap resource="vo/AL_SHIFT_VENDOR_SUPPORT_SqlMap.xml" />
+       <sqlMap resource="vo/V_RP_HR_BSC_CSSR_SqlMap.xml" />
+       <sqlMap resource="vo/V_RP_HR_CELL_CSSR_SqlMap.xml" />
+       <sqlMap resource="vo/ASSETS_TYPES_SqlMap.xml" />
+       <sqlMap resource="vo/ASSETS_WARRANTY_SqlMap.xml" />
+       <sqlMap resource="vo/AS_IMPORT_WAREHOUSE_SqlMap.xml" />
+       <sqlMap resource="vo/ASSETS_MANAGEMENTS_SqlMap.xml" />
+       <sqlMap resource="vo/AS_EXPORT_WAREHOUSE_SqlMap.xml" />
+       <sqlMap resource="vo/ASSETS_INVENTORYING_SqlMap.xml" />
+       
+       <sqlMap resource="vo/COST_DETAIL_SqlMap.xml" />
+       <sqlMap resource="vo/COST_EXPENSES_SqlMap.xml" />
+       <sqlMap resource="vo/COST_PLAN_SqlMap.xml" />
+       <sqlMap resource="vo/COST_WORK_SqlMap.xml" />
+       
+       <sqlMap resource="vo/SYS_LOG_SqlMap.xml" />
+       <sqlMap resource="vo/V_ASSETS_IMPORT_WAREHOUSE_SqlMap.xml" />
+       <sqlMap resource="vo/AS_IMPORT_WAREHOUSE_TMP_SqlMap.xml" />
+       
+       <sqlMap resource="vo/AS_PROPOSED_WAREHOUSE_SqlMap.xml" />
+       <sqlMap resource="vo/AS_CARDS_SqlMap.xml" />
+       
+       <sqlMap resource="vo/C_TABLE_CONFIG_SqlMap.xml" />
+       
+       <sqlMap resource="vo/ISO_ASSET_TYPE_SqlMap.xml" />
+       <sqlMap resource="vo/ISO_INVENTORY_SqlMap.xml" />
+       <sqlMap resource="vo/H_PROVINCE_FB_SqlMap.xml" />
+       <sqlMap resource="vo/ISO_LICENSE_SOFT_SqlMap.xml" />
+       
+  <!-- Du an Alarm C6 Author: VanAnhCT, Date: 30/08/2013 -->
+    <sqlMap resource="vo/AL_ALARM_WORKS_SqlMap.xml" />
+    <sqlMap resource="vo/AL_ALARM_TYPES_SqlMap.xml" />
+    <sqlMap resource="vo/AL_COMMAND_DANGEROUS_SqlMap.xml" />
+    <sqlMap resource="vo/AL_HANDLING_LIBRARY_SqlMap.xml" />
+    <sqlMap resource="vo/DY_AL_DETAIL_FINISH_QUALITY_SqlMap.xml" />
+    <sqlMap resource="vo/DY_AL_DETAIL_FINISH_SqlMap.xml" />
+    <sqlMap resource="vo/DY_AL_DETAIL_NON_FINISH_SqlMap.xml" />
+    <sqlMap resource="vo/DY_AL_DETAIL_TOTAL_QUALITY_SqlMap.xml" />
+    <sqlMap resource="vo/R_ALARM_LOG_SqlMap.xml" />
+    <sqlMap resource="vo/SYS_USER_AREA_SqlMap.xml" />
+    <sqlMap resource="vo/SYS_USER_EQUIPMENT_NAME_SqlMap.xml" />
+    <sqlMap resource="vo/ISO_PORT_CARD_SqlMap.xml" />
+    
+    <sqlMap resource="vo/C_CONFIG_ALARM_TYPE_SqlMap.xml" />
+    <sqlMap resource="vo/ISO_INVENTORY_HISTORY_SqlMap.xml" />
+    <sqlMap resource="vo/ISO_INVENTORY_REMOVE_SqlMap.xml" /> 
+    <sqlMap resource="vo/ISO_SUPPORT_SqlMap.xml" /> 
+    <sqlMap resource="vo/ISO_LICENSE_HARD_SqlMap.xml" /> 
+    <sqlMap resource="vo/SMS_CONTENTS_SqlMap.xml" /> 
+    <sqlMap resource="vo/SYS_FILES_SqlMap.xml" /> 
+    
+    <sqlMap resource="vo/R_ALARM_LOG_TEMP_SqlMap.xml" /> 
+    <sqlMap resource="vo/SYS_BLACKLIST_SqlMap.xml" /> 
+    <sqlMap resource="vo/V_RP_DY_TRX_TOTAL_SqlMap.xml" />
+    <sqlMap resource="vo/V_RP_DY_TRX_SqlMap.xml" />
+    
+    <sqlMap resource="vo/C_TELNET_SERVERS_SqlMap.xml" />
+    <sqlMap resource="vo/H_CELL_SqlMap.xml" />
+    <sqlMap resource="vo/V_RP_HR_SITE_2G_3G_SqlMap.xml" />
+    <sqlMap resource="vo/AL_MONITOR_SITE_SqlMap.xml" />
+    <sqlMap resource="vo/AL_MONITOR_TEMPERATURE_SITE_SqlMap.xml" />
+	<sqlMap resource="vo/RP_HR_SITE_2G_3G_SqlMap.xml" />
+	<sqlMap resource="vo/AL_MANAGE_CR_CDD_SqlMap.xml" />
+	<sqlMap resource="vo/AL_MANAGE_PROJECT_SqlMap.xml" />
+	<sqlMap resource="vo/AL_MANAGE_ON_AIR_SqlMap.xml" />
+	
+	<sqlMap resource="vo/V_AL_HR_FINISH_RATE_SqlMap.xml" />
+	<sqlMap resource="vo/AL_DY_RP_FINISH_RATE_SqlMap.xml" />
+	<sqlMap resource="vo/AL_HR_WARNING_BY_ALARM_CLASS_SqlMap.xml" />
+	<sqlMap resource="vo/AL_DY_WARNING_BY_ALARM_CLASS_SqlMap.xml" />
+	<sqlMap resource="vo/AL_HR_WARNING_BY_ALARM_NAME_SqlMap.xml" />
+	<sqlMap resource="vo/AL_DY_WARNING_BY_ALARM_NAME_SqlMap.xml" />
+	<sqlMap resource="vo/AL_HR_NON_FINISH_BY_AL_CLASS_SqlMap.xml" />
+	<sqlMap resource="vo/AL_DY_NON_FINISH_BY_AL_CLASS_SqlMap.xml" />
+	<sqlMap resource="vo/V_AL_RB_LOSS_POWER_SqlMap.xml" />
+	<sqlMap resource="vo/V_AL_RB_LOSS_CONFIGURATION_SqlMap.xml" />
+	
+	<sqlMap resource="vo/DY_REPORT_LOSSPOWER_BY_TEAM_SqlMap.xml" />
+	<sqlMap resource="vo/DY_REPORT_LOSSPOWER_BY_DAY_SqlMap.xml" />
+	<sqlMap resource="vo/AL_DY_RP_FLUTTER_POWER_SqlMap.xml" />
+	<sqlMap resource="vo/V_AL_ALARM_LOG_SqlMap.xml" />
+	<sqlMap resource="vo/AL_DY_RP_ERROR_POWER_SqlMap.xml" />
+	<sqlMap resource="vo/AL_DY_MBL_ABL_LOG_SqlMap.xml" />
+	<sqlMap resource="vo/V_AL_RB_LOSS_ANTENNA_SqlMap.xml" />
+	<sqlMap resource="vo/V_AL_RB_LOSS_CONFIG3G_SqlMap.xml" />
+	<sqlMap resource="vo/AL_DY_RP_DIP_3G_SqlMap.xml" />
+	<sqlMap resource="vo/AL_DY_RP_DIP_SqlMap.xml" />
+	<sqlMap resource="vo/AL_DY_RP_ERROR_DIP_SqlMap.xml" />
+	<sqlMap resource="vo/V_AL_RB_LOSS_COMUNICATION_SqlMap.xml" />
+	
+	<sqlMap resource="vo/AL_WORK_CALENDAR_SqlMap.xml" />
+	<!-- <sqlMap resource="vo/V_RP_IPBB_DATA_SqlMap.xml" /> -->
+	<sqlMap resource="vo/SYS_MAIL_PARAMETER_MASTER_SqlMap.xml" />
+	<sqlMap resource="vo/ISO_INVENTORY_TEMP_SqlMap.xml" />
+	<sqlMap resource="vo/AL_MANAGE_PROJECT_TRACK_SqlMap.xml" /> 
+	<sqlMap resource="vo/V_RP_DY_TRX_3G_SqlMap.xml" />
+	<sqlMap resource="vo/V_RP_DY_TRX_TOTAL_3G_SqlMap.xml" /> 
+	<sqlMap resource="vo/AL_MANAGE_BACKLOG_SqlMap.xml" /> 
+	<sqlMap resource="vo/SYS_DEFINE_SMS_EMAIL_SqlMap.xml" /> 
+	<sqlMap resource="vo/R_ALARM_ROUTER_LOG_SqlMap.xml" />
+	<sqlMap resource="vo/R_ALARM_CSI_LOG_SqlMap.xml" />
+	
+	<sqlMap resource="vo/W_WORKING_AT_SHIFT_SqlMap.xml" />
+	
+	<sqlMap resource="vo/V_RP_HR_E_BSC_LOAD_ONLINE_SqlMap.xml" />
+	<sqlMap resource="vo/V_RP_HR_E_BSC_LOAD_3G_ONLINE_SqlMap.xml" />
+	<sqlMap resource="vo/V_RP_HR_N_LOAD_ONLINE_SqlMap.xml" />
+	
+	<sqlMap resource="vo/R_ALARM_LOSS_POWER_LOG_SqlMap.xml" />	
+	<sqlMap resource="vo/R_ALARM_OPERATION_LOG_SqlMap.xml" />
+	<sqlMap resource="vo/DY_TRX_SqlMap.xml" />
+	<sqlMap resource="vo/DY_TRX_NEW_SqlMap.xml" />
+	<sqlMap resource="vo/DY_TRX_DOWN_SqlMap.xml" />
+	<sqlMap resource="vo/CABLE_TRANSMISSION_PARTNERS_SqlMap.xml" />
+	<sqlMap resource="vo/CABLE_SWITCHBOARD_SqlMap.xml" />
+	<!-- Cham diem KPIs -->
+	<sqlMap resource="vo/V_RP_DY_SITE_DEPTS_SqlMap.xml" />
+	<sqlMap resource="vo/V_RP_DY_SITE_TEAMS_SqlMap.xml" />
+	<sqlMap resource="vo/V_RP_DY_SITE_GROUPS_SqlMap.xml" />
+	<sqlMap resource="vo/V_RP_DY_SITE_GROUPS_CAUSBY_SqlMap.xml" />
+	<sqlMap resource="vo/V_H_SITE_LEVEL_TH_SqlMap.xml" />
+	<!-- Canh bao IPBB -->
+	<sqlMap resource="vo/R_ALARM_LOG_IPBB_SqlMap.xml" />
+	<sqlMap resource="vo/V_RP_DY_ISO_UTILITY_SqlMap.xml" />
+	
+	<!-- AnhCTV-28/09/2015-->
+	<sqlMap resource="vo/AL_SHIFT_ASSESS_SqlMap.xml" />
+	
+	<sqlMap resource="vo/SYS_STANDARDIZED_ERROR_SqlMap.xml" />
+	<sqlMap resource="vo/SYS_STANDARD_UCTT_SqlMap.xml" />
+	
+	<!-- AnhCTV-28/09/2015 Thong ke so luong muc gio-->
+	<sqlMap resource="vo/HR_AL_DETAIL_TOTAL_QUALITY_SqlMap.xml" />
+	<sqlMap resource="vo/HR_AL_FINISH_QUALITY_SqlMap.xml" />
+	<sqlMap resource="vo/HR_AL_NON_FINISH_QUALITY_SqlMap.xml" />
+	<sqlMap resource="vo/SYS_MAIL_PARAMETER_SqlMap.xml" />
+	<!-- AnhCTV-18/11/2015 config block cho report tuy chon-->
+	
+	<sqlMap resource="vo/SYS_PARAMETERS_SqlMap.xml" />
+	<sqlMap resource="vo/V_DY_IPBB_LINK_SqlMap.xml" />
+	<sqlMap resource="vo/DY_TAI_THIET_BI_SqlMap.xml" />
+	<sqlMap resource="vo/WK_TAI_THIET_BI_SqlMap.xml" />
+	<sqlMap resource="vo/MN_TAI_THIET_BI_SqlMap.xml" />
+	<sqlMap resource="vo/AL_ALARM_WORKS_DETAIL_SqlMap.xml" />
+	
+	<sqlMap resource="vo/SYS_REPORT_BLOCK_SqlMap.xml" />
+	<sqlMap resource="vo/V_RP_HR_FEEDBACK_SqlMap.xml" />
+	<sqlMap resource="vo/V_RP_DY_IBC_SqlMap.xml" />
+	<sqlMap resource="vo/V_RP_IBC_3G_SqlMap.xml" />
+	
+	<sqlMap resource="vo/QLDN_DON_GIA_DIEN_SqlMap.xml" />
+	<sqlMap resource="vo/QLDN_DON_VI_THU_HUONG_SqlMap.xml" />
+	<sqlMap resource="vo/QLDN_PHAN_BO_CHI_PHI_SqlMap.xml" />
+	<sqlMap resource="vo/QLDN_QL_MAT_BANG_SqlMap.xml" />
+	<sqlMap resource="vo/QLDN_THONG_TIN_MAY_NO_SqlMap.xml" />
+	<sqlMap resource="vo/QLDN_THONG_TIN_TRAM_SqlMap.xml" />
+	<sqlMap resource="vo/QLDN_TRAM_TT_DIEN_SqlMap.xml" />
+	<sqlMap resource="vo/QLDN_TRAM_TT_NHIEN_LIEU_SqlMap.xml" />
+	<sqlMap resource="vo/QLDN_UPLOAD_LOG_SqlMap.xml" />
+	<sqlMap resource="vo/QLDN_LOSS_POWER_SqlMap.xml" />
+	
+</sqlMapConfig>

@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+ <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CostDetailTHMain" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="36" bottomMargin="36" isIgnorePagination="true">
+ 	<property name="ireport.zoom" value="1.0"/>
+ 	<property name="ireport.x" value="0"/>
+ 	<property name="ireport.y" value="0"/>
+ 	<parameter name="costMonth" class="java.lang.Integer"/>
+ 	<parameter name="costYear" class="java.lang.Integer"/>
+ 	<parameter name="deptName" class="java.lang.String"/>
+ 	<parameter name="costDetailList" class="java.util.List"/>
+ 	<parameter name="sumList" class="java.util.List"/>
+ 	<parameter name="headerDaTHLast" class="java.lang.String"/>
+ 	<parameter name="headerGiaoCR" class="java.lang.String"/>
+ 	<parameter name="title" class="java.lang.String"/>
+ 	<parameter name="titlePB" class="java.lang.String"/>
+ 	<parameter name="titleGC" class="java.lang.String"/>
+ 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+ 		<defaultValueExpression><![CDATA["C:\\Users\\Phoenix\\Desktop\\"]]></defaultValueExpression>
+ 	</parameter>
+ 	<background>
+ 		<band splitType="Stretch"/>
+ 	</background>
+ 	<title>
+ 		<band height="58" splitType="Stretch">
+ 			<textField isBlankWhenNull="true">
+ 				<reportElement  x="1" y="0" width="790" height="36"/>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="20" isBold="true"/>
+ 				</textElement>
+ 				<textFieldExpression><![CDATA[$P{title}]]></textFieldExpression>
+ 			</textField>
+ 			<textField>
+ 				<reportElement  x="1" y="36" width="790" height="20"/>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="14" isBold="true"/>
+ 				</textElement>
+ 				<textFieldExpression><![CDATA[$P{titlePB}]]></textFieldExpression>
+ 			</textField>
+ 		</band>
+ 	</title>
+ 	<detail>
+ 		<band height="103">
+ 			<elementGroup/>
+ 			<subreport runToBottom="false">
+ 				<reportElement  positionType="Float" stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="2" width="791" height="100" isPrintWhenDetailOverflows="true"/>
+ 				<subreportParameter name="costMonth">
+ 					<subreportParameterExpression><![CDATA[$P{costMonth}]]></subreportParameterExpression>
+ 				</subreportParameter>
+ 				<subreportParameter name="costYear">
+ 					<subreportParameterExpression><![CDATA[$P{costYear}]]></subreportParameterExpression>
+ 				</subreportParameter>
+ 				<subreportParameter name="deptName">
+ 					<subreportParameterExpression><![CDATA[$P{deptName}]]></subreportParameterExpression>
+ 				</subreportParameter>
+ 				<subreportParameter name="headerDaTHLast">
+ 					<subreportParameterExpression><![CDATA[$P{headerDaTHLast}]]></subreportParameterExpression>
+ 				</subreportParameter>
+ 				<subreportParameter name="headerGiaoCR">
+ 					<subreportParameterExpression><![CDATA[$P{headerGiaoCR}]]></subreportParameterExpression>
+ 				</subreportParameter>
+ 				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{sumList}))]]></dataSourceExpression>
+ 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "/SumCostDetailTH.jasper"]]></subreportExpression>
+ 			</subreport>
+ 		</band>
+ 		<band height="102">
+ 			<subreport runToBottom="false">
+ 				<reportElement  positionType="Float" stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="0" width="791" height="100" isPrintWhenDetailOverflows="true"/>
+ 				<subreportParameter name="costMonth">
+ 					<subreportParameterExpression><![CDATA[$P{costMonth}]]></subreportParameterExpression>
+ 				</subreportParameter>
+ 				<subreportParameter name="costYear">
+ 					<subreportParameterExpression><![CDATA[$P{costYear}]]></subreportParameterExpression>
+ 				</subreportParameter>
+ 				<subreportParameter name="deptName">
+ 					<subreportParameterExpression><![CDATA[$P{deptName}]]></subreportParameterExpression>
+ 				</subreportParameter>
+ 				<subreportParameter name="headerDaTHLast">
+ 					<subreportParameterExpression><![CDATA[$P{headerDaTHLast}]]></subreportParameterExpression>
+ 				</subreportParameter>
+ 				<subreportParameter name="headerGiaoCR">
+ 					<subreportParameterExpression><![CDATA[$P{headerGiaoCR}]]></subreportParameterExpression>
+ 				</subreportParameter>
+ 				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{costDetailList}))]]></dataSourceExpression>
+ 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "/CostDetailTH.jasper"]]></subreportExpression>
+ 			</subreport>
+ 		</band>
+ 	</detail>
+ </jasperReport>

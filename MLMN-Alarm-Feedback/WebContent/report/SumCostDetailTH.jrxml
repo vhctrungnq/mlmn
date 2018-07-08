@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SumCostDetailTH" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="36" bottomMargin="36" isIgnorePagination="true">
+ 	<property name="ireport.zoom" value="1.0"/>
+ 	<property name="ireport.x" value="0"/>
+ 	<property name="ireport.y" value="0"/>
+ 	<parameter name="costMonth" class="java.lang.Integer"/>
+ 	<parameter name="costYear" class="java.lang.Integer"/>
+ 	<parameter name="deptName" class="java.lang.String"/>
+ 	<parameter name="headerDaTHLast" class="java.lang.String"/>
+ 	<parameter name="headerGiaoCR" class="java.lang.String"/>
+ 	<field name="countTask" class="java.lang.Integer">
+ 		<fieldDescription><![CDATA[countTask]]></fieldDescription>
+ 	</field>
+ 	<field name="deliveryPlanYear" class="java.lang.Double">
+ 		<fieldDescription><![CDATA[comulativeLasttm]]></fieldDescription>
+ 	</field>
+ 	<field name="adjustmentPlanYear" class="java.lang.Double">
+ 		<fieldDescription><![CDATA[adjustmentPlanYear]]></fieldDescription>
+ 	</field>
+ 	<field name="deliveryPlanCurrentm" class="java.lang.Double">
+ 		<fieldDescription><![CDATA[deliveryPlanCurrentm]]></fieldDescription>
+ 	</field>
+ 	<field name="doneToLastm" class="java.lang.Double">
+ 		<fieldDescription><![CDATA[doneToLastm]]></fieldDescription>
+ 	</field>
+ 	<field name="remainingCost" class="java.lang.Double">
+ 		<fieldDescription><![CDATA[remainingCost]]></fieldDescription>
+ 	</field>
+ 	<field name="jobClassification" class="java.lang.String"/>
+ 	<variable name="SumCountTask" class="java.lang.Integer" calculation="Sum">
+ 		<variableExpression><![CDATA[$F{countTask}]]></variableExpression>
+ 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+ 	</variable>
+ 	<variable name="SumDeliveryPlanYear" class="java.lang.Double" calculation="Sum">
+ 		<variableExpression><![CDATA[$F{deliveryPlanYear}]]></variableExpression>
+ 		<initialValueExpression><![CDATA[0.0]]></initialValueExpression>
+ 	</variable>
+ 	<variable name="SumDeliveryPlanCurrentm" class="java.lang.Double" calculation="Sum">
+ 		<variableExpression><![CDATA[$F{deliveryPlanCurrentm}]]></variableExpression>
+ 		<initialValueExpression><![CDATA[0.0]]></initialValueExpression>
+ 	</variable>
+ 	<variable name="SumAdjustmentPlanYear" class="java.lang.Double" calculation="Sum">
+ 		<variableExpression><![CDATA[$F{adjustmentPlanYear}]]></variableExpression>
+ 		<initialValueExpression><![CDATA[0.0]]></initialValueExpression>
+ 	</variable>
+ 	<variable name="SumDoneToLastm" class="java.lang.Double" calculation="Sum">
+ 		<variableExpression><![CDATA[$F{doneToLastm}]]></variableExpression>
+ 		<initialValueExpression><![CDATA[0.0]]></initialValueExpression>
+ 	</variable>
+ 	<variable name="SumRemainingCost" class="java.lang.Double" calculation="Sum">
+ 		<variableExpression><![CDATA[$F{remainingCost}]]></variableExpression>
+ 		<initialValueExpression><![CDATA[0.0]]></initialValueExpression>
+ 	</variable>
+ 	<background>
+ 		<band splitType="Stretch"/>
+ 	</background>
+ 	<pageHeader>
+ 		<band height="35" splitType="Stretch">
+ 			<staticText>
+ 				<reportElement  x="0" y="8" width="538" height="27"/>
+ 				<textElement textAlignment="Left" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="16" isBold="true"/>
+ 				</textElement>
+ 				<text><![CDATA[A. TỔNG HỢP KẾ HOẠCH GIAO]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  stretchType="RelativeToTallestObject" x="538" y="8" width="145" height="27" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.0"/>
+ 					<leftPen lineWidth="0.0"/>
+ 					<bottomPen lineWidth="0.0"/>
+ 					<rightPen lineWidth="0.0"/>
+ 				</box>
+ 				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 					<font fontName="Times New Roman" size="12" isBold="true" isItalic="true" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 				</textElement>
+ 				<text><![CDATA[Ðơn vị: triệu đồng]]></text>
+ 			</staticText>
+ 		</band>
+ 	</pageHeader>
+ 	<columnHeader>
+ 		<band height="61" splitType="Stretch">
+ 			<staticText>
+ 				<reportElement  positionType="Float" x="178" y="2" width="144" height="59" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+ 					<font fontName="Times New Roman" size="11" isBold="true" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 				</textElement>
+ 				<text><![CDATA[Phân loại công việc]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  positionType="Float" x="111" y="2" width="67" height="59" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+ 					<font fontName="Times New Roman" size="11" isBold="true" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 				</textElement>
+ 				<text><![CDATA[STT]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  positionType="Float" x="322" y="2" width="72" height="59" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+ 					<font fontName="Times New Roman" size="11" isBold="true" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 				</textElement>
+ 				<text><![CDATA[S.lượng công việc]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  positionType="Float" x="394" y="2" width="75" height="59" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+ 					<font fontName="Times New Roman" size="11" isBold="true" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 				</textElement>
+ 				<text><![CDATA[KH năm]]></text>
+ 			</staticText>
+ 			<textField>
+ 				<reportElement  positionType="Float" x="469" y="2" width="69" height="59"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="11" isBold="true"/>
+ 				</textElement>
+ 				<textFieldExpression><![CDATA[$P{headerDaTHLast}]]></textFieldExpression>
+ 			</textField>
+ 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 				<reportElement  positionType="Float" x="538" y="2" width="74" height="59" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="11" isBold="true"/>
+ 				</textElement>
+ 				<textFieldExpression><![CDATA[$P{headerGiaoCR}]]></textFieldExpression>
+ 			</textField>
+ 			<staticText>
+ 				<reportElement  positionType="Float" x="612" y="2" width="71" height="59" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+ 					<font fontName="Times New Roman" size="11" isBold="true" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 				</textElement>
+ 				<text><![CDATA[Chi phí còn lại]]></text>
+ 			</staticText>
+ 		</band>
+ 	</columnHeader>
+ 	<detail>
+ 		<band height="33" splitType="Stretch">
+ 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 				<reportElement  positionType="Float" stretchType="RelativeToTallestObject" x="111" y="0" width="67" height="33" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Right" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="12"/>
+ 				</textElement>
+ 				<textFieldExpression><![CDATA[$V{REPORT_COUNT}.intValue()]]></textFieldExpression>
+ 			</textField>
+ 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 				<reportElement  positionType="Float" stretchType="RelativeToTallestObject" x="178" y="0" width="144" height="33" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Left" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="12"/>
+ 				</textElement>
+ 				<textFieldExpression><![CDATA[$F{jobClassification}]]></textFieldExpression>
+ 			</textField>
+ 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 				<reportElement  positionType="Float" stretchType="RelativeToTallestObject" x="322" y="0" width="72" height="33" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Right" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="12"/>
+ 				</textElement>
+ 				<textFieldExpression><![CDATA[$F{countTask}]]></textFieldExpression>
+ 			</textField>
+ 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 				<reportElement  positionType="Float" stretchType="RelativeToTallestObject" x="394" y="0" width="75" height="33" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Right" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="12"/>
+ 				</textElement>
+ 				<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($F{deliveryPlanYear}.doubleValue())]]></textFieldExpression>
+ 			</textField>
+ 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 				<reportElement  positionType="Float" stretchType="RelativeToTallestObject" x="469" y="0" width="69" height="33" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Right" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="12"/>
+ 				</textElement>
+ 				<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($F{doneToLastm}.doubleValue())]]></textFieldExpression>
+ 			</textField>
+ 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 				<reportElement  positionType="Float" stretchType="RelativeToTallestObject" x="538" y="0" width="74" height="33" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Right" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="12"/>
+ 				</textElement>
+ 				<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($F{deliveryPlanCurrentm}.doubleValue())]]></textFieldExpression>
+ 			</textField>
+ 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 				<reportElement  positionType="Float" stretchType="RelativeToTallestObject" x="612" y="0" width="71" height="33" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Right" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="12"/>
+ 				</textElement>
+ 				<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($F{remainingCost}.doubleValue())]]></textFieldExpression>
+ 			</textField>
+ 		</band>
+ 	</detail>
+ 	<columnFooter>
+ 		<band height="35" splitType="Stretch">
+ 			<staticText>
+ 				<reportElement  x="111" y="0" width="211" height="33"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="12" isBold="true"/>
+ 				</textElement>
+ 				<text><![CDATA[Tổng cộng]]></text>
+ 			</staticText>
+ 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 				<reportElement  positionType="Float" stretchType="RelativeToTallestObject" x="394" y="0" width="75" height="33" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Right" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="12" isBold="true"/>
+ 				</textElement>
+ 				<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($V{SumDeliveryPlanYear}.doubleValue())]]></textFieldExpression>
+ 			</textField>
+ 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 				<reportElement  positionType="Float" stretchType="RelativeToTallestObject" x="469" y="0" width="69" height="33" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Right" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="12" isBold="true"/>
+ 				</textElement>
+ 				<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($V{SumDoneToLastm}.doubleValue())]]></textFieldExpression>
+ 			</textField>
+ 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 				<reportElement  positionType="Float" stretchType="RelativeToTallestObject" x="538" y="0" width="74" height="33" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Right" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="12" isBold="true"/>
+ 				</textElement>
+ 				<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($V{SumDeliveryPlanCurrentm}.doubleValue())]]></textFieldExpression>
+ 			</textField>
+ 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 				<reportElement  positionType="Float" stretchType="RelativeToTallestObject" x="612" y="0" width="71" height="33" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Right" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="12" isBold="true"/>
+ 				</textElement>
+ 				<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($V{SumRemainingCost}.doubleValue())]]></textFieldExpression>
+ 			</textField>
+ 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 				<reportElement  positionType="Float" stretchType="RelativeToTallestObject" x="322" y="0" width="72" height="33" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Right">
+ 					<font fontName="Times New Roman" size="12" isBold="true"/>
+ 				</textElement>
+ 				<textFieldExpression><![CDATA[$V{SumCountTask}]]></textFieldExpression>
+ 			</textField>
+ 		</band>
+ 	</columnFooter>
+ </jasperReport>

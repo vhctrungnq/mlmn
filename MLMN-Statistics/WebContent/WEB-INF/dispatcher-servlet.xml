@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+	<!-- <mvc:annotation-driven /> -->
+	<context:component-scan base-package="vn.com.vhc.vmsc2.statistics.web.controller" />
+	<context:component-scan base-package="vn.com.vhc.vmsc2.statistics.web.controller.ericsson" />
+	<context:component-scan base-package="controller.admin" />
+	
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" 
+		p:interceptors-ref="menuInterceptor" />
+		
+	<bean id="menuInterceptor" class="sts.security.authentication.HandlerController" />
+	
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="order" value="1" />
+		<property name="messageConverters">
+			<list>
+				<!-- <bean class="org.springframework.http.converter.StringHttpMessageConverter"/> -->
+				<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+					<property name="supportedMediaTypes" value="text/html;charset=UTF-8" />
+				</bean>
+				<bean class="org.springframework.http.converter.FormHttpMessageConverter"/>
+				<bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter" />
+				<bean class="org.springframework.http.converter.xml.SourceHttpMessageConverter"/>
+				<bean class="org.springframework.http.converter.BufferedImageHttpMessageConverter"/>
+				<bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
+			</list>
+		</property>
+		<property name="webBindingInitializer">
+			<bean class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
+				<property name="validator" ref="validator" />
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- Configures Hibernate Validator -->
+	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+	
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+		p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" p:contentType="text/html;charset=UTF-8"/>
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+		<property name="maxUploadSize" value="8000000" />
+	</bean>
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename">
+			<value>/WEB-INF/classes/messages_vi</value>
+		</property>
+		<property name="fallbackToSystemLocale">
+			<value>false</value>
+		</property>
+		<property name="useCodeAsDefaultMessage">
+			<value>true</value>
+		</property>
+		<property name="defaultEncoding" value="UTF-8"/>
+		
+	</bean>
+	
+	<!-- Declare the Interceptor -->
+	<mvc:interceptors>
+		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"
+			p:paramName="locale" />
+	</mvc:interceptors>
+
+	<!-- Declare the Resolver -->
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+		<property name="defaultLocale" value="vi" />
+	</bean>
+</beans>

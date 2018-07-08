@@ -1,0 +1,11 @@
+[INFO] Connection to the database 1 successful
+[INFO] Load BTS succesful
+[INFO] Load BTS 3G succesful
+[INFO] Load BSCID succesful
+[INFO] Load RNCID succesful
+[INFO] Load AlarmConfig2G succesful
+[INFO] Load AlarmConfig3G succesful
+[INFO] Config QueueUtil successful
+[INFO] Start Alarm forwarding at port 1234, channel 1116523490
+[INFO] Connect from /127.0.0.1:1234
+[INFO] Disconnect from /127.0.0.1:1234

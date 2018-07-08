@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CostDetail" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="36" bottomMargin="36" isIgnorePagination="true">
+ 	<property name="ireport.zoom" value="1.0"/>
+ 	<property name="ireport.x" value="0"/>
+ 	<property name="ireport.y" value="0"/>
+ 	<property name="net.sf.jasperreports.export.html.remove.emtpy.space.between.rows" value="True"/>
+ 	<style name="Row" mode="Transparent">
+ 		<conditionalStyle>
+ 			<conditionExpression><![CDATA[$F{rootNo} == 0 || $F{rootNo} == 1]]></conditionExpression>
+ 			<style mode="Opaque" forecolor="#FF0505" isBold="true"/>
+ 		</conditionalStyle>
+ 		<conditionalStyle>
+ 			<conditionExpression><![CDATA[$F{rootNo} == 2]]></conditionExpression>
+ 			<style mode="Opaque" forecolor="#005CB8" isBold="true"/>
+ 		</conditionalStyle>
+ 		<conditionalStyle>
+ 			<conditionExpression><![CDATA[$F{rootNo} == 3]]></conditionExpression>
+ 			<style mode="Opaque" forecolor="#5C00B8" isBold="true"/>
+ 		</conditionalStyle>
+ 		<conditionalStyle>
+ 			<conditionExpression><![CDATA[$F{rootNo} == 4]]></conditionExpression>
+ 			<style mode="Opaque" forecolor="#F3F9FF" isBold="true"/>
+ 		</conditionalStyle>
+ 	</style>
+ 	<parameter name="costMonth" class="java.lang.Integer"/>
+ 	<parameter name="costYear" class="java.lang.Integer"/>
+ 	<parameter name="deptName" class="java.lang.String"/>
+ 	<parameter name="headerLuyKeLast" class="java.lang.String"/>
+ 	<parameter name="headerKHGiao" class="java.lang.String"/>
+ 	<parameter name="headerDaTH" class="java.lang.String"/>
+ 	<parameter name="headerLuyKeCR" class="java.lang.String"/>
+ 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+ 		<defaultValueExpression><![CDATA["C:\\Users\\Phoenix\\Desktop\\"]]></defaultValueExpression>
+ 	</parameter>
+ 	<field name="expensesCode" class="java.lang.String"/>
+ 	<field name="taskNo" class="java.lang.String">
+ 		<fieldDescription><![CDATA[taskNo]]></fieldDescription>
+ 	</field>
+ 	<field name="workCode" class="java.lang.String">
+ 		<fieldDescription><![CDATA[workCode]]></fieldDescription>
+ 	</field>
+ 	<field name="workName" class="java.lang.String">
+ 		<fieldDescription><![CDATA[workName]]></fieldDescription>
+ 	</field>
+ 	<field name="comulativeLasttm" class="java.lang.Double">
+ 		<fieldDescription><![CDATA[comulativeLasttm]]></fieldDescription>
+ 	</field>
+ 	<field name="deliveryPlanCurrentm" class="java.lang.Double">
+ 		<fieldDescription><![CDATA[deliveryPlanCurrentm]]></fieldDescription>
+ 	</field>
+ 	<field name="doneCurrentm" class="java.lang.Double">
+ 		<fieldDescription><![CDATA[doneCurrentm]]></fieldDescription>
+ 	</field>
+ 	<field name="comulativeCurrentm" class="java.lang.Double">
+ 		<fieldDescription><![CDATA[comulativeCurrentm]]></fieldDescription>
+ 	</field>
+ 	<field name="rateDoneLastm" class="java.lang.Double">
+ 		<fieldDescription><![CDATA[rateDoneLastm]]></fieldDescription>
+ 	</field>
+ 	<field name="remainingCost" class="java.lang.Double">
+ 		<fieldDescription><![CDATA[remainingCost]]></fieldDescription>
+ 	</field>
+ 	<field name="jobClassification" class="java.lang.String"/>
+ 	<field name="rootNo" class="java.lang.Integer"/>
+ 	<variable name="SumComulativeLasttm" class="java.lang.Double" calculation="Sum">
+ 		<variableExpression><![CDATA[($F{rootNo} == 0 || $F{rootNo} == 1)?$F{comulativeLasttm}:0.0]]></variableExpression>
+ 		<initialValueExpression><![CDATA[0.0]]></initialValueExpression>
+ 	</variable>
+ 	<variable name="SumDeliveryPlanCurrentm" class="java.lang.Double" calculation="Sum">
+ 		<variableExpression><![CDATA[($F{rootNo} == 0 || $F{rootNo} == 1)?$F{deliveryPlanCurrentm}:0.0]]></variableExpression>
+ 		<initialValueExpression><![CDATA[0.0]]></initialValueExpression>
+ 	</variable>
+ 	<variable name="SumDoneCurrentm" class="java.lang.Double" calculation="Sum">
+ 		<variableExpression><![CDATA[($F{rootNo} == 0 || $F{rootNo} == 1)?$F{doneCurrentm}:0.0]]></variableExpression>
+ 		<initialValueExpression><![CDATA[0.0]]></initialValueExpression>
+ 	</variable>
+ 	<variable name="SumComulativeCurrentm" class="java.lang.Double" calculation="Sum">
+ 		<variableExpression><![CDATA[($F{rootNo} == 0 || $F{rootNo} == 1)?$F{comulativeCurrentm}:0.0]]></variableExpression>
+ 		<initialValueExpression><![CDATA[0.0]]></initialValueExpression>
+ 	</variable>
+ 	<variable name="SumRemainingCost" class="java.lang.Double" calculation="Sum">
+ 		<variableExpression><![CDATA[($F{rootNo} == 0 || $F{rootNo} == 1)?$F{remainingCost}:0.0]]></variableExpression>
+ 		<initialValueExpression><![CDATA[0.0]]></initialValueExpression>
+ 	</variable>
+ 	<background>
+ 		<band splitType="Stretch"/>
+ 	</background>
+ 	<pageHeader>
+ 		<band height="31" splitType="Stretch">
+ 			<staticText>
+ 				<reportElement  x="-1" y="0" width="791" height="31"/>
+ 				<textElement verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="16" isBold="true"/>
+ 				</textElement>
+ 				<text><![CDATA[B. CHI TIẾT KẾ HOẠCH GIAO]]></text>
+ 			</staticText>
+ 		</band>
+ 	</pageHeader>
+ 	<columnHeader>
+ 		<band height="62" splitType="Stretch">
+ 			<staticText>
+ 				<reportElement  positionType="Float" stretchType="RelativeToTallestObject" x="0" y="2" width="59" height="60" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="11" isBold="true"/>
+ 				</textElement>
+ 				<text><![CDATA[Khoản mục CP]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  positionType="Float" stretchType="RelativeToTallestObject" x="59" y="2" width="51" height="60" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="11" isBold="true"/>
+ 				</textElement>
+ 				<text><![CDATA[STT Ng.vụ]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  positionType="Float" stretchType="RelativeToTallestObject" x="180" y="2" width="144" height="60" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="11" isBold="true"/>
+ 				</textElement>
+ 				<text><![CDATA[Nội dung nghiệp vụ - nội dung công việc chi tiết]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  positionType="Float" stretchType="RelativeToTallestObject" x="110" y="2" width="70" height="60" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="11" isBold="true"/>
+ 				</textElement>
+ 				<text><![CDATA[Mã công việc]]></text>
+ 			</staticText>
+ 			<textField>
+ 				<reportElement  positionType="Float" stretchType="RelativeToTallestObject" x="324" y="2" width="71" height="60" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="11" isBold="true"/>
+ 				</textElement>
+ 				<textFieldExpression><![CDATA[$P{headerLuyKeLast}]]></textFieldExpression>
+ 			</textField>
+ 			<textField>
+ 				<reportElement  positionType="Float" stretchType="RelativeToTallestObject" x="395" y="2" width="74" height="60" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="11" isBold="true"/>
+ 				</textElement>
+ 				<textFieldExpression><![CDATA[$P{headerKHGiao}]]></textFieldExpression>
+ 			</textField>
+ 			<textField>
+ 				<reportElement  positionType="Float" stretchType="RelativeToTallestObject" x="469" y="2" width="70" height="60" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="11" isBold="true"/>
+ 				</textElement>
+ 				<textFieldExpression><![CDATA[$P{headerDaTH}]]></textFieldExpression>
+ 			</textField>
+ 			<textField>
+ 				<reportElement  positionType="Float" stretchType="RelativeToTallestObject" x="539" y="2" width="73" height="60" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="11" isBold="true"/>
+ 				</textElement>
+ 				<textFieldExpression><![CDATA[$P{headerLuyKeCR}]]></textFieldExpression>
+ 			</textField>
+ 			<staticText>
+ 				<reportElement  positionType="Float" stretchType="RelativeToTallestObject" x="612" y="2" width="49" height="60" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="11" isBold="true"/>
+ 				</textElement>
+ 				<text><![CDATA[% TH/HT]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  positionType="Float" stretchType="RelativeToTallestObject" x="661" y="2" width="59" height="60" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="11" isBold="true"/>
+ 				</textElement>
+ 				<text><![CDATA[Chi phí còn lại]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  positionType="Float" stretchType="RelativeToTallestObject" x="720" y="2" width="70" height="60" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="11" isBold="true"/>
+ 				</textElement>
+ 				<text><![CDATA[Phân loại công việc]]></text>
+ 			</staticText>
+ 		</band>
+ 	</columnHeader>
+ 	<detail>
+ 		<band height="33" splitType="Stretch">
+ 			<elementGroup>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="59" height="33" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement verticalAlignment="Middle">
+ 						<font fontName="Times New Roman" size="12"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[$F{expensesCode}]]></textFieldExpression>
+ 				</textField>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" positionType="Float" stretchType="RelativeToBandHeight" x="395" y="0" width="74" height="33" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement textAlignment="Right" verticalAlignment="Middle">
+ 						<font fontName="Times New Roman" size="12"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($F{deliveryPlanCurrentm}.doubleValue())]]></textFieldExpression>
+ 				</textField>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" positionType="Float" stretchType="RelativeToBandHeight" x="469" y="0" width="70" height="33" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement textAlignment="Right" verticalAlignment="Middle">
+ 						<font fontName="Times New Roman" size="12"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($F{doneCurrentm}.doubleValue())]]></textFieldExpression>
+ 				</textField>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" positionType="Float" stretchType="RelativeToBandHeight" x="720" y="0" width="70" height="33" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement textAlignment="Left" verticalAlignment="Middle">
+ 						<font fontName="Times New Roman" size="12"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[$F{jobClassification}]]></textFieldExpression>
+ 				</textField>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" positionType="Float" stretchType="RelativeToBandHeight" x="661" y="0" width="59" height="33" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement textAlignment="Right" verticalAlignment="Middle">
+ 						<font fontName="Times New Roman" size="12"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($F{remainingCost}.doubleValue())]]></textFieldExpression>
+ 				</textField>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" positionType="Float" stretchType="RelativeToBandHeight" x="324" y="0" width="71" height="33" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement textAlignment="Right" verticalAlignment="Middle">
+ 						<font fontName="Times New Roman" size="12"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($F{comulativeLasttm}.doubleValue())]]></textFieldExpression>
+ 				</textField>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" positionType="Float" stretchType="RelativeToBandHeight" x="180" y="0" width="144" height="33" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement verticalAlignment="Middle">
+ 						<font fontName="Times New Roman" size="12"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[$F{workName}]]></textFieldExpression>
+ 				</textField>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" positionType="Float" stretchType="RelativeToBandHeight" x="539" y="0" width="73" height="33" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement textAlignment="Right" verticalAlignment="Middle">
+ 						<font fontName="Times New Roman" size="12"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($F{comulativeCurrentm}.doubleValue())]]></textFieldExpression>
+ 				</textField>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" positionType="Float" stretchType="RelativeToBandHeight" x="59" y="0" width="51" height="33" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement verticalAlignment="Middle">
+ 						<font fontName="Times New Roman" size="12"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[$F{taskNo}]]></textFieldExpression>
+ 				</textField>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" positionType="Float" stretchType="RelativeToBandHeight" x="110" y="0" width="70" height="33" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement verticalAlignment="Middle">
+ 						<font fontName="Times New Roman" size="12"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[$F{workCode}]]></textFieldExpression>
+ 				</textField>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" positionType="Float" stretchType="RelativeToBandHeight" x="612" y="0" width="49" height="33" isPrintWhenDetailOverflows="true" forecolor="#005CB8"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement textAlignment="Right" verticalAlignment="Middle">
+ 						<font fontName="Times New Roman" size="12"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($F{rateDoneLastm}.doubleValue()) + " %"]]></textFieldExpression>
+ 				</textField>
+ 			</elementGroup>
+ 		</band>
+ 	</detail>
+ 	<columnFooter>
+ 		<band height="38" splitType="Stretch">
+ 			<elementGroup/>
+ 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 				<reportElement  positionType="Float" stretchType="RelativeToBandHeight" x="324" y="0" width="71" height="33" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Right" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="12" isBold="true"/>
+ 				</textElement>
+ 				<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($V{SumComulativeLasttm}.doubleValue())]]></textFieldExpression>
+ 			</textField>
+ 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 				<reportElement  positionType="Float" stretchType="RelativeToBandHeight" x="395" y="0" width="74" height="33" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Right" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="12" isBold="true"/>
+ 				</textElement>
+ 				<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($V{SumDeliveryPlanCurrentm}.doubleValue())]]></textFieldExpression>
+ 			</textField>
+ 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 				<reportElement  positionType="Float" stretchType="RelativeToBandHeight" x="469" y="0" width="70" height="33" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Right" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="12" isBold="true"/>
+ 				</textElement>
+ 				<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($V{SumDoneCurrentm}.doubleValue())]]></textFieldExpression>
+ 			</textField>
+ 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 				<reportElement  positionType="Float" stretchType="RelativeToBandHeight" x="612" y="0" width="49" height="33" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Right" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="12" isBold="true"/>
+ 				</textElement>
+ 			</textField>
+ 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 				<reportElement  positionType="Float" stretchType="RelativeToBandHeight" x="661" y="0" width="59" height="33" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Right" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="12" isBold="true"/>
+ 				</textElement>
+ 				<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($V{SumRemainingCost}.doubleValue())]]></textFieldExpression>
+ 			</textField>
+ 			<staticText>
+ 				<reportElement  positionType="Float" stretchType="RelativeToBandHeight" x="720" y="0" width="70" height="33" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Right" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="12"/>
+ 				</textElement>
+ 				<text><![CDATA[]]></text>
+ 			</staticText>
+ 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 				<reportElement  positionType="Float" stretchType="RelativeToBandHeight" x="539" y="0" width="73" height="33" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Right" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="12" isBold="true"/>
+ 				</textElement>
+ 				<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($V{SumComulativeCurrentm}.doubleValue())]]></textFieldExpression>
+ 			</textField>
+ 			<staticText>
+ 				<reportElement  positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="324" height="33" isPrintInFirstWholeBand="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="12" isBold="true"/>
+ 				</textElement>
+ 				<text><![CDATA[Tổng cộng]]></text>
+ 			</staticText>
+ 		</band>
+ 	</columnFooter>
+ 	<summary>
+ 		<band splitType="Stretch"/>
+ 	</summary>
+ </jasperReport>

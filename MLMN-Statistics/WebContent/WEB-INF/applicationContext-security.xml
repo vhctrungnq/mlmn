@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/security
+						http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+
+
+	<security:http auto-config="false" use-expressions="true" entry-point-ref="authenticationEntryPoint">
+		<security:intercept-url pattern="/map/list.htm*" access="permitAll" />
+		<security:intercept-url pattern="/report/bieu-do-giam-sat/*" access="permitAll" />
+		<security:intercept-url pattern="/help/list.htm*" access="permitAll" />
+		<security:intercept-url pattern="/index.jsp" access="permitAll" />
+		<security:intercept-url pattern="/home.jsp" access="permitAll" />
+		<security:intercept-url pattern="/loginDefault.htm" access="permitAll" />
+		<security:intercept-url pattern="/**/*.htm*" access="isAuthenticated()" />
+		
+		<security:logout invalidate-session="true" logout-success-url="/loginDefault.htm?loggedout=true" logout-url="/logout" />
+
+		<security:custom-filter ref="authenticationFilter" position="FORM_LOGIN_FILTER"/>			
+	</security:http>
+ 	
+ 	<!-- Khai bao lop xac thuc tai khoan thong qua username and password -->
+ 	<bean id="authenticationFilter" class="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter"
+  		p:authenticationManager-ref="customAuthenticationManager"
+  		p:authenticationFailureHandler-ref="customAuthenticationFailureHandler"
+  		p:authenticationSuccessHandler-ref="customAuthenticationSuccessHandler" />
+  		
+	<bean id="customAuthenticationManager" class="sts.security.authentication.CustomAuthenticationManager" />
+ 	
+ 	<!-- Thiet lap duong dan dang nhap that bai -->
+ 	<bean id="customAuthenticationFailureHandler" class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler"
+ 		p:defaultFailureUrl="/loginDefault.htm?authfailed=true" />
+ 		
+ 	 <!-- Thiet lap duong dan dang nhap thanh cong -->
+ 	<bean id="customAuthenticationSuccessHandler" class="org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler"
+ 		p:defaultTargetUrl="/temp.htm" />
+ 	
+ 	<!-- Duong dan dang nhap -->
+ 	<bean id="authenticationEntryPoint"  class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint"
+	 	p:loginFormUrl="/loginDefault.htm"/>
+	 	
+	<!-- Khai bao authentication manager -->
+	<security:authentication-manager/>
+	
+	<!-- <security:http auto-config="true" use-expressions="true">
+		<security:intercept-url pattern="/" access="permitAll" />
+		<security:intercept-url pattern="/login*"
+			access="permitAll" />
+		<security:intercept-url pattern="/images/**"
+			filters="none" />
+		<security:intercept-url pattern="/scripts/**"
+			filters="none" />
+		<security:intercept-url pattern="/styles/**"
+			filters="none" />
+		<security:intercept-url pattern="/**"
+			access="isAuthenticated()" />
+		<security:intercept-url pattern="/report/**"
+			access="hasRole('ROLE_REPORT')" />
+		<security:intercept-url pattern="/network/**"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/system/**"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/log/**"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/coreService/**"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/user/password*"
+			access="hasAnyRole('ROLE_REPORT','ROLE_ADMIN')" />
+		<security:intercept-url pattern="/user/**"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:form-login login-page="/login.jsp"
+			default-target-url="/welcome.htm" authentication-failure-url="/login.jsp?authfailed=true" />
+		<security:logout invalidate-session="true"
+			logout-success-url="/login.jsp?loggedout=true" logout-url="/logout" />
+		<security:remember-me key="vmsc2web"/>			
+	</security:http>
+
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:password-encoder hash="md5" />
+			<security:jdbc-user-service
+				data-source-ref="dataSource"
+				users-by-username-query="select	u.USERNAME, u.PASSWORD, u.ENABLED from A_ALERT_USERS u where u.USERNAME = ?"
+				authorities-by-username-query="select u.USERNAME, ur.ROLE_ID as authority from A_ALERT_USERS u join A_USER_ROLE ur on u.USER_ID = ur.USER_ID where u.USERNAME = ?" />
+		</security:authentication-provider>
+	</security:authentication-manager> -->
+
+</beans>

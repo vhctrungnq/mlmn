@@ -1,0 +1,79 @@
+.mobile-web {
+
+}
+.login-page .ui-field-contain input.ui-input-text,
+.login-page .ui-field-contain textarea.ui-input-text {
+	margin-top: 10px;
+}
+.devices-page .ui-listview-inset {
+	margin: 5px 0 5px 0;
+}
+
+.EWTitle 
+{
+   background-color:#FFFFFF;
+   font-weight:bold;
+   font-size: 16px;
+   font: Arial, Helvetica, sans-serif;
+   border-bottom:1px solid #ee8888;
+   text-align:left;
+   color: #ee8888;
+}
+		
+.EWContent {
+   font: normal 80% Arial, Helvetica, sans-serif;
+   text-align:left;
+}
+
+body{
+	margin: 0;
+	padding: 0;
+}
+
+#canvas_holder{
+	
+	width:100%; 
+	height:100%;
+	z-index: 0;
+}
+
+#map_canvas{
+	width:100%;
+	height:100%; 
+	position: "absolute"; 
+	top: 0px; 
+	left: 0px; 
+	overflow: "hidden";
+}
+
+#holder{
+	width: auto;
+	background: white;
+	z-index: 1000;
+	position: absolute;
+	margin: 5px 0 0 5px;
+	padding: 0 5px 0 5px;
+	display: block;
+	height: 20px;
+	border:1px solid black;
+	float: left;
+}
+
+#holder div{
+	float: left;
+	overflow: hidden;
+}
+
+#separator{
+	border-right:1px solid black;
+	margin: 0 5px;
+}
+
+a.ui-link{
+	font-family: Arial, sans-serif !important;
+	font-weight:normal !important;
+	font-size: 85%;
+	display: inline-block;
+	color: rgb(68, 68, 68) !important;
+	text-decoration: none;
+}

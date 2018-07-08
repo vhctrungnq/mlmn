@@ -1,0 +1,944 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CostPlan" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true">
+ 	<property name="ireport.zoom" value="1.0"/>
+ 	<property name="ireport.x" value="0"/>
+ 	<property name="ireport.y" value="0"/>
+ 	<style name="Row" mode="Transparent">
+ 		<conditionalStyle>
+ 			<conditionExpression><![CDATA[$F{rootNo} == 0 || $F{rootNo} == 1]]></conditionExpression>
+ 			<style mode="Opaque" forecolor="#FF0505" isBold="true"/>
+ 		</conditionalStyle>
+ 		<conditionalStyle>
+ 			<conditionExpression><![CDATA[$F{rootNo} == 2]]></conditionExpression>
+ 			<style mode="Opaque" forecolor="#005CB8" isBold="true"/>
+ 		</conditionalStyle>
+ 		<conditionalStyle>
+ 			<conditionExpression><![CDATA[$F{rootNo} == 3]]></conditionExpression>
+ 			<style mode="Opaque" forecolor="#5C00B8" isBold="true"/>
+ 		</conditionalStyle>
+ 		<conditionalStyle>
+ 			<conditionExpression><![CDATA[$F{rootNo} == 4]]></conditionExpression>
+ 			<style mode="Opaque" forecolor="#F3F9FF" isBold="true"/>
+ 		</conditionalStyle>
+ 	</style>
+ 	<parameter name="costYear" class="java.lang.Integer"/>
+ 	<parameter name="lastYear" class="java.lang.Integer"/>
+ 	<parameter name="deptName" class="java.lang.String"/>
+ 	<parameter name="title" class="java.lang.String"/>
+ 	<parameter name="titlePB" class="java.lang.String"/>
+ 	<parameter name="headerDaTHLast" class="java.lang.String"/>
+ 	<field name="expensesCode" class="java.lang.String"/>
+ 	<field name="expensesName" class="java.lang.String">
+ 		<fieldDescription><![CDATA[expensesName]]></fieldDescription>
+ 	</field>
+ 	<field name="doneToLasty" class="java.lang.Double">
+ 		<fieldDescription><![CDATA[doneToLasty]]></fieldDescription>
+ 	</field>
+ 	<field name="quantity" class="java.lang.Integer">
+ 		<fieldDescription><![CDATA[quantity]]></fieldDescription>
+ 	</field>
+ 	<field name="unitCost" class="java.lang.Double">
+ 		<fieldDescription><![CDATA[unitCost]]></fieldDescription>
+ 	</field>
+ 	<field name="deliveryYear" class="java.lang.Double">
+ 		<fieldDescription><![CDATA[deliveryYear]]></fieldDescription>
+ 	</field>
+ 	<field name="distributionPlan1" class="java.lang.Double">
+ 		<fieldDescription><![CDATA[distributionPlan1]]></fieldDescription>
+ 	</field>
+ 	<field name="distributionPlan2" class="java.lang.Double">
+ 		<fieldDescription><![CDATA[distributionPlan2]]></fieldDescription>
+ 	</field>
+ 	<field name="distributionPlan3" class="java.lang.Double">
+ 		<fieldDescription><![CDATA[distributionPlan3]]></fieldDescription>
+ 	</field>
+ 	<field name="distributionPlan4" class="java.lang.Double"/>
+ 	<field name="distributionPlan5" class="java.lang.Double"/>
+ 	<field name="distributionPlan6" class="java.lang.Double"/>
+ 	<field name="distributionPlan7" class="java.lang.Double"/>
+ 	<field name="distributionPlan8" class="java.lang.Double"/>
+ 	<field name="distributionPlan9" class="java.lang.Double"/>
+ 	<field name="distributionPlan10" class="java.lang.Double"/>
+ 	<field name="distributionPlan12" class="java.lang.Double"/>
+ 	<field name="distributionPlan11" class="java.lang.Double"/>
+ 	<field name="description" class="java.lang.String"/>
+ 	<field name="rootNo" class="java.lang.Integer"/>
+ 	<variable name="SumDeliveryYear" class="java.lang.Double" calculation="Sum">
+ 		<variableExpression><![CDATA[($F{rootNo} == 0 || $F{rootNo} == 1)?$F{deliveryYear}:0]]></variableExpression>
+ 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+ 	</variable>
+ 	<variable name="SumdoneToLasty" class="java.lang.Double" calculation="Sum">
+ 		<variableExpression><![CDATA[($F{rootNo} == 0 || $F{rootNo} == 1)?$F{doneToLasty}:0]]></variableExpression>
+ 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+ 	</variable>
+ 	<variable name="SumDistributionPlan1" class="java.lang.Double" calculation="Sum">
+ 		<variableExpression><![CDATA[($F{rootNo} == 0 || $F{rootNo} == 1)?$F{distributionPlan1}:0]]></variableExpression>
+ 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+ 	</variable>
+ 	<variable name="SumDistributionPlan2" class="java.lang.Double" calculation="Sum">
+ 		<variableExpression><![CDATA[($F{rootNo} == 0 || $F{rootNo} == 1)?$F{distributionPlan2}:0]]></variableExpression>
+ 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+ 	</variable>
+ 	<variable name="SumDistributionPlan3" class="java.lang.Double" calculation="Sum">
+ 		<variableExpression><![CDATA[($F{rootNo} == 0 || $F{rootNo} == 1)?$F{distributionPlan3}:0]]></variableExpression>
+ 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+ 	</variable>
+ 	<variable name="SumDistributionPlan4" class="java.lang.Double" calculation="Sum">
+ 		<variableExpression><![CDATA[($F{rootNo} == 0 || $F{rootNo} == 1)?$F{distributionPlan4}:0]]></variableExpression>
+ 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+ 	</variable>
+ 	<variable name="SumDistributionPlan5" class="java.lang.Double" calculation="Sum">
+ 		<variableExpression><![CDATA[($F{rootNo} == 0 || $F{rootNo} == 1)?$F{distributionPlan5}:0]]></variableExpression>
+ 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+ 	</variable>
+ 	<variable name="SumDistributionPlan6" class="java.lang.Double" calculation="Sum">
+ 		<variableExpression><![CDATA[($F{rootNo} == 0 || $F{rootNo} == 1)?$F{distributionPlan6}:0]]></variableExpression>
+ 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+ 	</variable>
+ 	<variable name="SumDistributionPlan7" class="java.lang.Double" calculation="Sum">
+ 		<variableExpression><![CDATA[($F{rootNo} == 0 || $F{rootNo} == 1)?$F{distributionPlan7}:0]]></variableExpression>
+ 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+ 	</variable>
+ 	<variable name="SumDistributionPlan8" class="java.lang.Double" calculation="Sum">
+ 		<variableExpression><![CDATA[($F{rootNo} == 0 || $F{rootNo} == 1)?$F{distributionPlan8}:0]]></variableExpression>
+ 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+ 	</variable>
+ 	<variable name="SumDistributionPlan9" class="java.lang.Double" calculation="Sum">
+ 		<variableExpression><![CDATA[($F{rootNo} == 0 || $F{rootNo} == 1)?$F{distributionPlan9}:0]]></variableExpression>
+ 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+ 	</variable>
+ 	<variable name="SumDistributionPlan10" class="java.lang.Double" calculation="Sum">
+ 		<variableExpression><![CDATA[($F{rootNo} == 0 || $F{rootNo} == 1)?$F{distributionPlan10}:0]]></variableExpression>
+ 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+ 	</variable>
+ 	<variable name="SumDistributionPlan11" class="java.lang.Double" calculation="Sum">
+ 		<variableExpression><![CDATA[($F{rootNo} == 0 || $F{rootNo} == 1)?$F{distributionPlan11}:0]]></variableExpression>
+ 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+ 	</variable>
+ 	<variable name="SumDistributionPlan12" class="java.lang.Double" calculation="Sum">
+ 		<variableExpression><![CDATA[($F{rootNo} == 0 || $F{rootNo} == 1)?$F{distributionPlan12}:0]]></variableExpression>
+ 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+ 	</variable>
+ 	<background>
+ 		<band splitType="Stretch"/>
+ 	</background>
+ 	<title>
+ 		<band height="57" splitType="Stretch">
+ 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 				<reportElement  x="0" y="0" width="802" height="36" isPrintWhenDetailOverflows="true"/>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="20" isBold="true"/>
+ 				</textElement>
+ 				<textFieldExpression><![CDATA[$P{title}]]></textFieldExpression>
+ 			</textField>
+ 			<textField>
+ 				<reportElement  x="0" y="36" width="802" height="20"/>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="14" isBold="true"/>
+ 				</textElement>
+ 				<textFieldExpression><![CDATA[$P{titlePB}]]></textFieldExpression>
+ 			</textField>
+ 		</band>
+ 	</title>
+ 	<columnHeader>
+ 		<band height="51" splitType="Stretch">
+ 			<staticText>
+ 				<reportElement  stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="2" width="802" height="49" isPrintWhenDetailOverflows="true" backcolor="#CCCCFF"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement markup="none">
+ 					<font fontName="Times New Roman" size="11" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 				</textElement>
+ 				<text><![CDATA[]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  stretchType="RelativeToTallestObject" x="0" y="2" width="43" height="49" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+ 					<font fontName="Times New Roman" size="11" isBold="true" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 				</textElement>
+ 				<text><![CDATA[Khoản mục CP]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  stretchType="RelativeToTallestObject" x="43" y="2" width="100" height="49" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+ 					<font fontName="Times New Roman" size="11" isBold="true" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 				</textElement>
+ 				<text><![CDATA[Nội dung nghiệp vụ ]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  stretchType="RelativeToTallestObject" x="191" y="2" width="154" height="19" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+ 					<font fontName="Times New Roman" size="11" isBold="true" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 				</textElement>
+ 				<text><![CDATA[Kế hoạch đăng ký]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  stretchType="RelativeToTallestObject" x="729" y="2" width="73" height="49" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+ 					<font fontName="Times New Roman" size="11" isBold="true" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 				</textElement>
+ 				<text><![CDATA[Ghi chú]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  stretchType="RelativeToTallestObject" x="191" y="21" width="56" height="30" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+ 					<font fontName="Times New Roman" size="11" isBold="true" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 				</textElement>
+ 				<text><![CDATA[Số lượng]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  stretchType="RelativeToTallestObject" x="247" y="21" width="45" height="30" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+ 					<font fontName="Times New Roman" size="11" isBold="true" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 				</textElement>
+ 				<text><![CDATA[Đơn giá]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  stretchType="RelativeToTallestObject" x="292" y="21" width="53" height="30" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+ 					<font fontName="Times New Roman" size="11" isBold="true" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 				</textElement>
+ 				<text><![CDATA[Thành tiền]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  stretchType="RelativeToTallestObject" x="345" y="2" width="384" height="19" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+ 					<font fontName="Times New Roman" size="11" isBold="true" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 				</textElement>
+ 				<text><![CDATA[Kế hoạch phân bổ CP các tháng trong]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  stretchType="RelativeToTallestObject" x="345" y="21" width="32" height="30" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+ 					<font fontName="Times New Roman" size="11" isBold="true" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 				</textElement>
+ 				<text><![CDATA[T1]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  stretchType="RelativeToTallestObject" x="377" y="21" width="32" height="30" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+ 					<font fontName="Times New Roman" size="11" isBold="true" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 				</textElement>
+ 				<text><![CDATA[T2]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  stretchType="RelativeToTallestObject" x="409" y="21" width="32" height="30" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+ 					<font fontName="Times New Roman" size="11" isBold="true" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 				</textElement>
+ 				<text><![CDATA[T3]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  stretchType="RelativeToTallestObject" x="441" y="21" width="32" height="30" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+ 					<font fontName="Times New Roman" size="11" isBold="true" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 				</textElement>
+ 				<text><![CDATA[T4]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  stretchType="RelativeToTallestObject" x="473" y="21" width="32" height="30" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+ 					<font fontName="Times New Roman" size="11" isBold="true" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 				</textElement>
+ 				<text><![CDATA[T5]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  stretchType="RelativeToTallestObject" x="505" y="21" width="32" height="30" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+ 					<font fontName="Times New Roman" size="11" isBold="true" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 				</textElement>
+ 				<text><![CDATA[T6]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  stretchType="RelativeToTallestObject" x="537" y="21" width="32" height="30" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+ 					<font fontName="Times New Roman" size="11" isBold="true" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 				</textElement>
+ 				<text><![CDATA[T7]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  stretchType="RelativeToTallestObject" x="569" y="21" width="32" height="30" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+ 					<font fontName="Times New Roman" size="11" isBold="true" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 				</textElement>
+ 				<text><![CDATA[T8]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  stretchType="RelativeToTallestObject" x="601" y="21" width="32" height="30" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+ 					<font fontName="Times New Roman" size="11" isBold="true" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 				</textElement>
+ 				<text><![CDATA[T9]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  stretchType="RelativeToTallestObject" x="633" y="21" width="32" height="30" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+ 					<font fontName="Times New Roman" size="11" isBold="true" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 				</textElement>
+ 				<text><![CDATA[T10]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  stretchType="RelativeToTallestObject" x="665" y="21" width="32" height="30" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+ 					<font fontName="Times New Roman" size="11" isBold="true" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 				</textElement>
+ 				<text><![CDATA[T11]]></text>
+ 			</staticText>
+ 			<staticText>
+ 				<reportElement  stretchType="RelativeToTallestObject" x="697" y="21" width="32" height="30" isPrintWhenDetailOverflows="true"/>
+ 				<box>
+ 					<pen lineWidth="0.5"/>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+ 					<font fontName="Times New Roman" size="11" isBold="true" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 				</textElement>
+ 				<text><![CDATA[T12]]></text>
+ 			</staticText>
+ 			<textField isBlankWhenNull="true">
+ 				<reportElement  x="143" y="2" width="48" height="49"/>
+ 				<box>
+ 					<topPen lineWidth="0.5"/>
+ 					<leftPen lineWidth="0.5"/>
+ 					<bottomPen lineWidth="0.5"/>
+ 					<rightPen lineWidth="0.5"/>
+ 				</box>
+ 				<textElement textAlignment="Left" verticalAlignment="Middle">
+ 					<font fontName="Times New Roman" size="11" isBold="true"/>
+ 				</textElement>
+ 				<textFieldExpression><![CDATA[$P{headerDaTHLast}]]></textFieldExpression>
+ 			</textField>
+ 		</band>
+ 	</columnHeader>
+ 	<detail>
+ 		<band height="27" splitType="Stretch">
+ 			<elementGroup>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" positionType="Float" stretchType="RelativeToTallestObject" x="292" y="0" width="53" height="27" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 						<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($F{deliveryYear}.doubleValue())]]></textFieldExpression>
+ 				</textField>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" positionType="Float" stretchType="RelativeToTallestObject" x="43" y="0" width="100" height="27" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
+ 						<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[$F{expensesName}]]></textFieldExpression>
+ 				</textField>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" positionType="Float" stretchType="RelativeToTallestObject" x="569" y="0" width="32" height="27" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 						<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($F{distributionPlan8}.doubleValue())]]></textFieldExpression>
+ 				</textField>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" positionType="Float" stretchType="RelativeToTallestObject" x="633" y="0" width="32" height="27" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 						<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($F{distributionPlan10}.doubleValue())]]></textFieldExpression>
+ 				</textField>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" positionType="Float" stretchType="RelativeToTallestObject" x="345" y="0" width="32" height="27" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 						<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($F{distributionPlan1}.doubleValue())]]></textFieldExpression>
+ 				</textField>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" positionType="Float" stretchType="RelativeToTallestObject" x="441" y="0" width="32" height="27" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 						<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($F{distributionPlan4}.doubleValue())]]></textFieldExpression>
+ 				</textField>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" positionType="Float" stretchType="RelativeToTallestObject" x="697" y="0" width="32" height="27" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 						<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($F{distributionPlan12}.doubleValue())]]></textFieldExpression>
+ 				</textField>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" positionType="Float" stretchType="RelativeToTallestObject" x="409" y="0" width="32" height="27" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 						<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($F{distributionPlan3}.doubleValue())]]></textFieldExpression>
+ 				</textField>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" positionType="Float" stretchType="RelativeToTallestObject" x="505" y="0" width="32" height="27" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 						<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($F{distributionPlan6}.doubleValue())]]></textFieldExpression>
+ 				</textField>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" positionType="Float" stretchType="RelativeToTallestObject" x="537" y="0" width="32" height="27" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 						<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($F{distributionPlan7}.doubleValue())]]></textFieldExpression>
+ 				</textField>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" stretchType="RelativeToTallestObject" x="143" y="0" width="48" height="27" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 						<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($F{doneToLasty}.doubleValue())]]></textFieldExpression>
+ 				</textField>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" stretchType="RelativeToTallestObject" x="729" y="0" width="73" height="27" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+ 						<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+ 				</textField>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" positionType="Float" stretchType="RelativeToTallestObject" x="665" y="0" width="32" height="27" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 						<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($F{distributionPlan11}.doubleValue())]]></textFieldExpression>
+ 				</textField>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" positionType="Float" stretchType="RelativeToTallestObject" x="473" y="0" width="32" height="27" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 						<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($F{distributionPlan5}.doubleValue())]]></textFieldExpression>
+ 				</textField>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" positionType="Float" stretchType="RelativeToTallestObject" x="601" y="0" width="32" height="27" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 						<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($F{distributionPlan9}.doubleValue())]]></textFieldExpression>
+ 				</textField>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" stretchType="RelativeToTallestObject" x="0" y="0" width="43" height="27" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement verticalAlignment="Middle" markup="none">
+ 						<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[$F{expensesCode}]]></textFieldExpression>
+ 				</textField>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" stretchType="RelativeToTallestObject" x="191" y="0" width="56" height="27" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 						<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>
+ 				</textField>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" stretchType="RelativeToTallestObject" x="247" y="0" width="45" height="27" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 						<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($F{unitCost}.doubleValue())]]></textFieldExpression>
+ 				</textField>
+ 				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 					<reportElement  style="Row" positionType="Float" stretchType="RelativeToTallestObject" x="377" y="0" width="32" height="27" isPrintWhenDetailOverflows="true"/>
+ 					<box>
+ 						<pen lineWidth="0.5"/>
+ 						<topPen lineWidth="0.5"/>
+ 						<leftPen lineWidth="0.5"/>
+ 						<bottomPen lineWidth="0.5"/>
+ 						<rightPen lineWidth="0.5"/>
+ 					</box>
+ 					<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 						<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 					</textElement>
+ 					<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($F{distributionPlan2}.doubleValue())]]></textFieldExpression>
+ 				</textField>
+ 			</elementGroup>
+ 		</band>
+ 	</detail>
+ 	<columnFooter>
+ 		<band height="25" splitType="Stretch">
+ 			<elementGroup>
+ 				<elementGroup>
+ 					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 						<reportElement  style="Row" stretchType="RelativeToTallestObject" mode="Transparent" x="697" y="0" width="32" height="22" isPrintWhenDetailOverflows="true" forecolor="#333333" backcolor="#FFFFFF"/>
+ 						<box>
+ 							<pen lineWidth="0.5"/>
+ 							<topPen lineWidth="0.5"/>
+ 							<leftPen lineWidth="0.5"/>
+ 							<bottomPen lineWidth="0.5"/>
+ 							<rightPen lineWidth="0.5"/>
+ 						</box>
+ 						<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 							<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 						</textElement>
+ 						<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($V{SumDistributionPlan12}.doubleValue())]]></textFieldExpression>
+ 					</textField>
+ 					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 						<reportElement  style="Row" stretchType="RelativeToTallestObject" mode="Transparent" x="665" y="0" width="32" height="22" isPrintWhenDetailOverflows="true" forecolor="#333333" backcolor="#FFFFFF"/>
+ 						<box>
+ 							<pen lineWidth="0.5"/>
+ 							<topPen lineWidth="0.5"/>
+ 							<leftPen lineWidth="0.5"/>
+ 							<bottomPen lineWidth="0.5"/>
+ 							<rightPen lineWidth="0.5"/>
+ 						</box>
+ 						<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 							<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 						</textElement>
+ 						<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($V{SumDistributionPlan11}.doubleValue())]]></textFieldExpression>
+ 					</textField>
+ 					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 						<reportElement  style="Row" stretchType="RelativeToTallestObject" mode="Transparent" x="409" y="0" width="32" height="22" isPrintWhenDetailOverflows="true" forecolor="#333333" backcolor="#FFFFFF"/>
+ 						<box>
+ 							<pen lineWidth="0.5"/>
+ 							<topPen lineWidth="0.5"/>
+ 							<leftPen lineWidth="0.5"/>
+ 							<bottomPen lineWidth="0.5"/>
+ 							<rightPen lineWidth="0.5"/>
+ 						</box>
+ 						<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 							<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 						</textElement>
+ 						<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($V{SumDistributionPlan3}.doubleValue())]]></textFieldExpression>
+ 					</textField>
+ 					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 						<reportElement  style="Row" stretchType="RelativeToTallestObject" mode="Transparent" x="473" y="0" width="32" height="22" isPrintWhenDetailOverflows="true" forecolor="#333333" backcolor="#FFFFFF"/>
+ 						<box>
+ 							<pen lineWidth="0.5"/>
+ 							<topPen lineWidth="0.5"/>
+ 							<leftPen lineWidth="0.5"/>
+ 							<bottomPen lineWidth="0.5"/>
+ 							<rightPen lineWidth="0.5"/>
+ 						</box>
+ 						<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 							<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 						</textElement>
+ 						<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($V{SumDistributionPlan5}.doubleValue())]]></textFieldExpression>
+ 					</textField>
+ 					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 						<reportElement  style="Row" stretchType="RelativeToTallestObject" mode="Transparent" x="633" y="0" width="32" height="22" isPrintWhenDetailOverflows="true" forecolor="#333333" backcolor="#FFFFFF"/>
+ 						<box>
+ 							<pen lineWidth="0.5"/>
+ 							<topPen lineWidth="0.5"/>
+ 							<leftPen lineWidth="0.5"/>
+ 							<bottomPen lineWidth="0.5"/>
+ 							<rightPen lineWidth="0.5"/>
+ 						</box>
+ 						<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 							<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 						</textElement>
+ 						<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($V{SumDistributionPlan10}.doubleValue())]]></textFieldExpression>
+ 					</textField>
+ 					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 						<reportElement  style="Row" stretchType="RelativeToTallestObject" mode="Transparent" x="292" y="0" width="53" height="22" isPrintWhenDetailOverflows="true" forecolor="#333333" backcolor="#FFFFFF"/>
+ 						<box>
+ 							<pen lineWidth="0.5"/>
+ 							<topPen lineWidth="0.5"/>
+ 							<leftPen lineWidth="0.5"/>
+ 							<bottomPen lineWidth="0.5"/>
+ 							<rightPen lineWidth="0.5"/>
+ 						</box>
+ 						<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 							<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 						</textElement>
+ 						<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($V{SumDeliveryYear}.doubleValue())]]></textFieldExpression>
+ 					</textField>
+ 					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 						<reportElement  style="Row" stretchType="RelativeToTallestObject" mode="Transparent" x="377" y="0" width="32" height="22" isPrintWhenDetailOverflows="true" forecolor="#333333" backcolor="#FFFFFF"/>
+ 						<box>
+ 							<pen lineWidth="0.5"/>
+ 							<topPen lineWidth="0.5"/>
+ 							<leftPen lineWidth="0.5"/>
+ 							<bottomPen lineWidth="0.5"/>
+ 							<rightPen lineWidth="0.5"/>
+ 						</box>
+ 						<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 							<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 						</textElement>
+ 						<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($V{SumDistributionPlan2}.doubleValue())]]></textFieldExpression>
+ 					</textField>
+ 					<staticText>
+ 						<reportElement  style="Row" stretchType="RelativeToTallestObject" x="0" y="0" width="292" height="22" isPrintWhenDetailOverflows="true" forecolor="#333333"/>
+ 						<box>
+ 							<pen lineWidth="0.5"/>
+ 							<topPen lineWidth="0.5"/>
+ 							<leftPen lineWidth="0.5"/>
+ 							<bottomPen lineWidth="0.5"/>
+ 							<rightPen lineWidth="0.5"/>
+ 						</box>
+ 						<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+ 							<font fontName="Times New Roman" size="12" isBold="true" isItalic="false" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 						</textElement>
+ 						<text><![CDATA[Tổng]]></text>
+ 					</staticText>
+ 					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 						<reportElement  style="Row" stretchType="RelativeToTallestObject" mode="Transparent" x="441" y="0" width="32" height="22" isPrintWhenDetailOverflows="true" forecolor="#333333" backcolor="#FFFFFF"/>
+ 						<box>
+ 							<pen lineWidth="0.5"/>
+ 							<topPen lineWidth="0.5"/>
+ 							<leftPen lineWidth="0.5"/>
+ 							<bottomPen lineWidth="0.5"/>
+ 							<rightPen lineWidth="0.5"/>
+ 						</box>
+ 						<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 							<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 						</textElement>
+ 						<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($V{SumDistributionPlan4}.doubleValue())]]></textFieldExpression>
+ 					</textField>
+ 					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 						<reportElement  style="Row" stretchType="RelativeToTallestObject" mode="Transparent" x="345" y="0" width="32" height="22" isPrintWhenDetailOverflows="true" forecolor="#333333" backcolor="#FFFFFF"/>
+ 						<box>
+ 							<pen lineWidth="0.5"/>
+ 							<topPen lineWidth="0.5"/>
+ 							<leftPen lineWidth="0.5"/>
+ 							<bottomPen lineWidth="0.5"/>
+ 							<rightPen lineWidth="0.5"/>
+ 						</box>
+ 						<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 							<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 						</textElement>
+ 						<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($V{SumDistributionPlan1}.doubleValue())]]></textFieldExpression>
+ 					</textField>
+ 					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 						<reportElement  style="Row" stretchType="RelativeToTallestObject" mode="Transparent" x="569" y="0" width="32" height="22" isPrintWhenDetailOverflows="true" forecolor="#333333" backcolor="#FFFFFF"/>
+ 						<box>
+ 							<pen lineWidth="0.5"/>
+ 							<topPen lineWidth="0.5"/>
+ 							<leftPen lineWidth="0.5"/>
+ 							<bottomPen lineWidth="0.5"/>
+ 							<rightPen lineWidth="0.5"/>
+ 						</box>
+ 						<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 							<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 						</textElement>
+ 						<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($V{SumDistributionPlan8}.doubleValue())]]></textFieldExpression>
+ 					</textField>
+ 					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 						<reportElement  style="Row" stretchType="RelativeToTallestObject" mode="Transparent" x="601" y="0" width="32" height="22" isPrintWhenDetailOverflows="true" forecolor="#333333" backcolor="#FFFFFF"/>
+ 						<box>
+ 							<pen lineWidth="0.5"/>
+ 							<topPen lineWidth="0.5"/>
+ 							<leftPen lineWidth="0.5"/>
+ 							<bottomPen lineWidth="0.5"/>
+ 							<rightPen lineWidth="0.5"/>
+ 						</box>
+ 						<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 							<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 						</textElement>
+ 						<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($V{SumDistributionPlan9}.doubleValue())]]></textFieldExpression>
+ 					</textField>
+ 					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 						<reportElement  style="Row" stretchType="RelativeToTallestObject" mode="Transparent" x="537" y="0" width="32" height="22" isPrintWhenDetailOverflows="true" forecolor="#333333" backcolor="#FFFFFF"/>
+ 						<box>
+ 							<pen lineWidth="0.5"/>
+ 							<topPen lineWidth="0.5"/>
+ 							<leftPen lineWidth="0.5"/>
+ 							<bottomPen lineWidth="0.5"/>
+ 							<rightPen lineWidth="0.5"/>
+ 						</box>
+ 						<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 							<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 						</textElement>
+ 						<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($V{SumDistributionPlan7}.doubleValue())]]></textFieldExpression>
+ 					</textField>
+ 					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+ 						<reportElement  style="Row" stretchType="RelativeToTallestObject" mode="Transparent" x="505" y="0" width="32" height="22" isPrintWhenDetailOverflows="true" forecolor="#333333" backcolor="#FFFFFF"/>
+ 						<box>
+ 							<pen lineWidth="0.5"/>
+ 							<topPen lineWidth="0.5"/>
+ 							<leftPen lineWidth="0.5"/>
+ 							<bottomPen lineWidth="0.5"/>
+ 							<rightPen lineWidth="0.5"/>
+ 						</box>
+ 						<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 							<font fontName="Times New Roman" size="12" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 						</textElement>
+ 						<textFieldExpression><![CDATA[new DecimalFormat("###,###,###.#").format($V{SumDistributionPlan6}.doubleValue())]]></textFieldExpression>
+ 					</textField>
+ 					<staticText>
+ 						<reportElement  style="Row" stretchType="RelativeToTallestObject" x="729" y="0" width="73" height="22" isPrintWhenDetailOverflows="true" forecolor="#333333"/>
+ 						<box>
+ 							<pen lineWidth="0.5"/>
+ 							<topPen lineWidth="0.5"/>
+ 							<leftPen lineWidth="0.5"/>
+ 							<bottomPen lineWidth="0.5"/>
+ 							<rightPen lineWidth="0.5"/>
+ 						</box>
+ 						<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+ 							<font fontName="Times New Roman" size="12" isBold="true" isItalic="false" pdfFontName="http://iboxnav.com.vn/font/arial.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+ 						</textElement>
+ 						<text><![CDATA[]]></text>
+ 					</staticText>
+ 				</elementGroup>
+ 			</elementGroup>
+ 		</band>
+ 	</columnFooter>
+ </jasperReport>

@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: VMSC6-Alarm-Feedback
+Bundle-SymbolicName: VMSC6-Alarm-Feedback
+Bundle-Version: 1.0.0.qualifier
+Export-Package: controller
+Import-Package: dao;resolution:=optional

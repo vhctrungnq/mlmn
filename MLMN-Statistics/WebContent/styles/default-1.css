@@ -1,0 +1,525 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 0px;
+	font: Verdana, Helvetica, Arial;
+	padding: 0px;
+	background: #fff;
+}
+
+#menuDefault {
+	background-image: url('/../images/bg_menu.gif');
+	background-repeat: repeat-x;
+	height: 24px
+}
+
+.ui-tabs-nav {
+	border-bottom: 1px solid #ccc;
+	margin: 0;
+	padding-bottom: 19px;
+	padding-left: 10px;
+}
+
+.ui-tabs-nav ul,.ui-tabs-nav li {
+	display: inline;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.ui-tabs-nav a:link,.ui-tabs-nav a:visited {
+	background: #E8EBF0;
+	border: 1px solid #ccc;
+	color: #666;
+	float: left;
+	font-size: small;
+	font-weight: normal;
+	line-height: 14px;
+	margin-right: 8px;
+	padding: 2px 10px 2px 10px;
+	text-decoration: none;
+}
+
+.ui-tabs-nav a:link.active,.ui-tabs-nav a:visited.active {
+	background: #fff;
+	border-bottom: 1px solid #fff;
+	color: #000;
+}
+
+.ui-tabs-nav a:hover {
+	color: #f00;
+}
+
+.ui-tabs-nav .ui-tabs-selected a {
+	background: #fff;
+	border-bottom: 1px solid #fff;
+	color: #000;
+}
+
+.ui-tabs-nav ul a:hover {
+	color: #f00 !important;
+}
+
+.ui-tabs-panel {
+	margin-top: 15px;
+}
+
+#header {
+	/* background: #22529c; */
+	background: url("/VMSC6-web/images/main-bg1.jpg") repeat scroll 0 0 #FFFFFF
+}
+
+#contents {
+	background: #fff;
+	border: 1px solid #ccc;
+	border-top: none;
+	clear: both;
+	margin: 0px;
+	padding: 15px;
+}
+
+/* table */
+table.form {
+	font-size: 80%;
+}
+
+table.simple {
+	width: 99%; /*100% of container produces horiz. scroll in Mozilla*/
+	border: none;
+	border-collapse: collapse;
+	background-color: #fff;
+}
+
+table.simple>tbody {
+	/* child selector syntax which IE6 and older do not support*/
+	overflow: auto;
+	height: 450px;
+	overflow-x: hidden;
+}
+
+table.simple thead tr {
+	position: relative;
+	top: expression(offsetParent.scrollTop); /*IE5+ only*/
+}
+
+table.simple thead td,thead th {
+	text-align: center;
+	font-size: 12px;
+	background-color: oldlace;
+	color: steelblue;
+	font-weight: bold;
+	border-top: solid 1px #d8d8d8;
+}
+
+table.simple td {
+	color: #000;
+	padding: 4px;
+	font-size: 12px;
+	text-align: left;
+	border: 1px solid #ccc;
+}
+
+table.simple td.margin {
+	border-width: 1px 4px 0 0;
+}
+
+table.simple td:last-child {
+	padding-right: 20px;
+} /*prevent Mozilla scrollbar from hiding cell content*/
+table.simple .master-header-1 {
+	background-color: #eee;
+}
+
+table.simple .master-header-2 {
+	background-color: #ffff99;
+}
+
+table.simple .master-header-3 {
+	background-color: #ffffcc;
+}
+
+table.simple .master-header-4 {
+	background-color: #fcd5b5;
+}
+
+table.simple2 {
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+	width: 100%
+}
+
+table.simple2 tr:hover {
+	background-color: #DDFFCC;
+}
+
+table.simple2 thead tr {
+	background-color: #eee;
+}
+
+table.simple2 th {
+	font-weight: bold;
+	text-align: left
+}
+
+table.simple2 .master-reportheader {
+	font-weight: bold;
+	text-align: center;
+}
+
+table.simple2 td,table.simple2 th {
+	border: 1px solid #ccc;
+	padding: 4px;
+	vertical-align: top;
+	font-family: verdana, arial, helvetica, tahoma;
+	font-size: 11px;
+	color: #000000
+}
+
+table.simple2 td.margin,table.simple2 th.margin {
+	border-width: 1px 4px 0 0;
+}
+
+table.simple2 .master-header-1 {
+	background-color: #eee;
+}
+
+table.simple2 .master-header-2 {
+	background-color: #ffff99;
+}
+
+table.simple2 .master-header-3 {
+	background-color: #ffffcc;
+}
+
+table.simple2 .master-header-4 {
+	background-color: #fcd5b5;
+}
+
+table.simple2 .master-header-5 {
+	background-color: #eee123;
+}
+
+table.simple2 .master-header-6 {
+	background-color: #ffff98;
+}
+
+table.simple2 .master-header-7 {
+	background-color: #ffffc7;
+}
+
+table.simple2 .master-header-8 {
+	background-color: #fcd5b6;
+}
+
+table.simple2 tr.TT2 {
+	background-color: rgb(83, 142, 213);
+	font-weight: bold;
+}
+
+table.simple2 tr.TT6 {
+	background-color: yellow;
+	font-weight: bold;
+}
+
+/* Speech Cssr and Speech Dcr*/
+table.simple5 {
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+	width: 100%
+}
+
+table.simple5 tr:hover {
+	background-color: #DDFFCC;
+}
+
+table.simple5 thead tr {
+	background-color: #eee;
+}
+
+table.simple5 th {
+	font-weight: bold;
+	text-align: left
+}
+
+table.simple5 .master-reportheader {
+	font-weight: bold;
+	text-align: center;
+}
+
+table.simple5 td,table.simple5 th {
+	border: 1px solid #ccc;
+	padding: 4px;
+	vertical-align: top;
+	font-family: verdana, arial, helvetica, tahoma;
+	font-size: 11px;
+	color: #000000
+}
+
+table.simple5 td.margin,table.simple5 th.margin {
+	border-width: 1px 4px 0 0;
+}
+
+table.simple5 .master-header-1 {
+	background-color: #fcd5b5;
+}
+
+table.simple5 .master-header-2 {
+	background-color: #ffff79;
+}
+
+table.simple5 .master-header-3 {
+	background-color: #c3d69b;
+}
+
+table.simple5 tr.TT2 {
+	background-color: rgb(83, 142, 213);
+	font-weight: bold;
+}
+
+table.simple5 tr.TT6 {
+	background-color: yellow;
+	font-weight: bold;
+}
+/* Finish*/
+
+table.simple3 {
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+	width: 100%
+}
+
+table.simple3 tr:hover {
+	background-color: #DDFFCC;
+}
+
+table.simple3 thead tr {
+	background-color: #eee;
+}
+
+table.simple3 th {
+	font-weight: bold;
+	text-align: center
+}
+
+table.simple3 .master-reportheader {
+	font-weight: bold;
+	text-align: center;
+}
+
+table.simple3 td,table.simple3 th {
+	border: 1px solid #ccc;
+	padding: 4px;
+	vertical-align: top;
+	font-family: verdana, arial, helvetica, tahoma;
+	font-size: 11px;
+	color: #000000
+}
+
+table.simple3 td.margin,table.simple3 th.margin {
+	border-width: 1px 4px 0 0;
+}
+
+table.tbl3G {
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+	width: 100%
+}
+
+table.tbl3G tr:hover {
+	background-color: #DDFFCC;
+}
+
+table.tbl3G thead tr {
+	background-color: #eee;
+}
+
+table.tbl3G th {
+	font-weight: bold;
+	text-align: left
+}
+
+table.tbl3G .master-reportheader {
+	font-weight: bold;
+	text-align: center;
+}
+
+table.tbl3G td,table.tbl3G th {
+	border: 1px solid #ccc;
+	padding: 4px;
+	vertical-align: top;
+	font-family: verdana, arial, helvetica, tahoma;
+	font-size: 11px;
+	color: #000000
+}
+
+table.tbl3G td.margin,table.tbl3G th.margin {
+	border-width: 1px 4px 0 0;
+}
+
+table.tbl3G .master-header-1 {
+	background-color: #eee;
+}
+
+table.tbl3G .master-header-2 {
+	background-color: #ffff99;
+}
+
+table.tbl3G .master-header-3 {
+	background-color: #ffffcc;
+}
+
+table.tbl3G .master-header-4 {
+	background-color: #fcd5b5;
+}
+
+table.tbl3G .master-header-5 {
+	background-color: #eee123;
+}
+
+table.tbl3G .master-header-6 {
+	background-color: #ffff98;
+}
+
+table.tbl3G .master-header-7 {
+	background-color: #ffffc7;
+}
+
+table.tbl3G .master-header-8 {
+	background-color: #fcd5b6;
+}
+
+table.tbl3G tr.TT2 {
+	background-color: rgb(83, 142, 213);
+	font-weight: bold;
+}
+
+table.tbl3G tr.TT6 {
+	background-color: yellow;
+	font-weight: bold;
+}
+
+div#loginTable {
+	background: #EEEEEE;
+	border: 1px solid #C0C0C0;
+	color: inherit;
+	margin: 10px 0px;
+	padding: 5px;
+	width: 300px;
+}
+
+.pagebanner,.pagelinks,.exportlinks {
+	font-size: 9pt;
+}
+
+.exportlinks {
+	margin: 10px 0px;
+}
+
+.hide {
+	display: none;
+}
+
+/* style */
+.normal {
+	font-size: 9pt
+}
+
+.small {
+	font-size: 8pt
+}
+
+.tiny {
+	font-size: 7pt
+}
+
+.large {
+	font-size: 11pt
+}
+
+.bold {
+	font-weight: bold
+}
+
+.italic {
+	font-weight: italic
+}
+
+a {
+	text-decoration: none
+}
+
+h1 {
+	color: #189090;
+	font-size: 28px;
+	font-weight: 900;
+	line-height: 28px;
+	padding-bottom: 15px;
+}
+
+h2 {
+	color: #189090;
+}
+.button
+{
+	font: normal 12px/16px sans-serif;
+	text-decoration: none;
+	padding: 2px 8px !important;
+	cursor: pointer;
+	border: 1px solid #BBB;
+	-moz-border-radius: 11px;
+	-khtml-border-radius: 11px;
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	-khtml-box-sizing: content-box;
+	box-sizing: content-box;
+	color: #464646;
+	text-shadow: rgba(255, 255, 255, 1) 0 1px 0;
+	background-image: url('/../images/white-grad.png');
+	background-repeat: repeat-x;
+}
+.button:hover
+{
+	border: 1px solid #8B8378;
+	color: #000000;
+}
+.button:active
+{
+	border: 1px solid #0033CC;
+}
+/*=======================================
+* Tooltips
+* ======================================*/
+.tooltip{
+   position: absolute;
+   padding: 10px 13px;
+   z-index: 2;
+   
+   color: #303030;
+   background-color: #f5f5b5;
+   border: 1px solid #DECA7E;
+   
+   font-family: sans-serif;
+   font-size: 10px;
+   line-height: 15px;
+   text-align: left;
+   
+   width: 700px;
+}
+
+.tooltip2{
+   position: absolute;
+   padding: 10px 13px;
+   z-index: 2;
+   
+   color: #303030;
+   background-color: #f5f5b5;
+   border: 1px solid #DECA7E;
+   
+   font-family: sans-serif;
+   font-size: 10px;
+   line-height: 15px;
+   text-align: left;
+}

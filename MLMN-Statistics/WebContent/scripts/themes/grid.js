@@ -1,0 +1,97 @@
+/**
+ * Grid theme for Highcharts JS
+ * @author Torstein Hønsi
+ */
+
+Highcharts.theme = {
+	colors: ['#FF0000', '#FFA500', '#FFFF00', '#50B432', '#058DC7', '#850077', '#24CBE5', '#64E572', '#FF9655', '#027883', '#6AF9C4', 
+	         '#FFCC99', '#008080', '#C0C0C0', '#ECAB53', '#DDC488', '#8B7B8B', '#D8BFD8', '#5D478B', '#AB82FF', '#EE82EE', '#68228B',
+	         '#B452CD', '#FFBBFF', '#8B2252', '#EED8AE', '#CD950C', '#A2CD5A', '#7FFFD4', '#D1EEEE', '#8B8682', '#B5B5B5', '#9FB6CD'],
+	chart: {
+		backgroundColor: {
+			linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
+			stops: [
+				[0, 'rgb(255, 255, 255)'],
+				[1, 'rgb(240, 240, 255)']
+			]
+		},
+		borderWidth: 2,
+		plotBackgroundColor: 'rgba(255, 255, 255, .9)',
+		plotShadow: true,
+		plotBorderWidth: 1
+	},
+	title: {
+		style: {
+			color: '#000',
+			font: 'bold 16px "Trebuchet MS", Verdana, sans-serif'
+		}
+	},
+	subtitle: {
+		style: {
+			color: '#666666',
+			font: 'bold 12px "Trebuchet MS", Verdana, sans-serif'
+		}
+	},
+	xAxis: {
+		gridLineWidth: 1,
+		lineColor: '#000',
+		tickColor: '#000',
+		labels: {
+			style: {
+				color: '#000',
+				font: '11px Trebuchet MS, Verdana, sans-serif'
+			}
+		},
+		title: {
+			style: {
+				color: '#333',
+				fontWeight: 'bold',
+				fontSize: '12px',
+				fontFamily: 'Trebuchet MS, Verdana, sans-serif'
+
+			}
+		}
+	},
+	yAxis: {
+		minorTickInterval: 'auto',
+		lineColor: '#000',
+		lineWidth: 1,
+		tickWidth: 1,
+		tickColor: '#000',
+		labels: {
+			style: {
+				color: '#000',
+				font: '11px Trebuchet MS, Verdana, sans-serif'
+			}
+		},
+		title: {
+			style: {
+				color: '#333',
+				fontWeight: 'bold',
+				fontSize: '12px',
+				fontFamily: 'Trebuchet MS, Verdana, sans-serif'
+			}
+		}
+	},
+	legend: {
+		itemStyle: {
+			font: '9pt Trebuchet MS, Verdana, sans-serif',
+			color: 'black'
+
+		},
+		itemHoverStyle: {
+			color: '#039'
+		},
+		itemHiddenStyle: {
+			color: 'gray'
+		}
+	},
+	labels: {
+		style: {
+			color: '#99b'
+		}
+	}
+};
+
+// Apply the theme
+var highchartsOptions = Highcharts.setOptions(Highcharts.theme);

@@ -1,0 +1,3113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+   						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   						http://www.springframework.org/schema/aop 
+   						http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName">
+			<value>java:/vmsc2DS</value>
+		</property>
+	</bean>
+
+	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="configLocation" value="WEB-INF/sqlmap-config.xml" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="BscDAO" class="vn.com.vhc.vmsc2.statistics.dao.BscDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="coreLogDao" class="vn.com.vhc.vmsc2.statistics.dao.CoreLogDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="downloadLogDao" class="vn.com.vhc.vmsc2.statistics.dao.DownloadLogDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="convertLogDao" class="vn.com.vhc.vmsc2.statistics.dao.ConvertLogDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="importLogDao" class="vn.com.vhc.vmsc2.statistics.dao.ImportLogDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="summaryLogDao" class="vn.com.vhc.vmsc2.statistics.dao.SummaryLogDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="summaryLog3gDao" class="vn.com.vhc.vmsc2.statistics.dao.SummaryLog3gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="summaryLogCoreDao" class="vn.com.vhc.vmsc2.statistics.dao.SummaryLogCoreDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="serverDao" class="vn.com.vhc.vmsc2.statistics.dao.ServerDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="serverDetailDao" class="vn.com.vhc.vmsc2.statistics.dao.ServerDetailDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="plsqlErrorLogDao" class="vn.com.vhc.vmsc2.statistics.dao.PlsqlErrorLogDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="rawFileDao" class="vn.com.vhc.vmsc2.statistics.dao.RawFileDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="filePatternDao" class="vn.com.vhc.vmsc2.statistics.dao.FilePatternDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="hrBscCoreDao" class="vn.com.vhc.vmsc2.statistics.dao.HrBscCoreDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="hrBscCssrQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrBscCssrQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="vRpHrBscDcrsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrBscDcrsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="vRpHrBscDcrtQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrBscDcrtQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="hrBscDcrsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrBscDcrsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="hrBscDcrtQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrBscDcrtQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="hrBscPsrQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrBscPsrQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="hrBscHsrQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrBscHsrQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="hrBscTrapcomQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrBscTrapcomQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="hrBscTrapeventQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrBscTrapeventQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="dyBscCoreDao" class="vn.com.vhc.vmsc2.statistics.dao.DyBscCoreDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="dyBscCssrQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyBscCssrQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="vRpDyBscDcrsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBscDcrsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="vRpDyBscDcrtQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBscDcrtQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="dyBscDcrsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyBscDcrsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="dyBscDcrtQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyBscDcrtQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="dyBscPsrQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyBscPsrQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="dyBscHsrQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyBscHsrQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="dyBscTrapcomQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyBscTrapcomQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="dyBscTrapeventQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyBscTrapeventQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="wkBscCoreDao" class="vn.com.vhc.vmsc2.statistics.dao.WkBscCoreDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="wkBscCssrQosDao" class="vn.com.vhc.vmsc2.statistics.dao.WkBscCssrQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="wkBscDcrsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.WkBscDcrsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="wkBscDcrtQosDao" class="vn.com.vhc.vmsc2.statistics.dao.WkBscDcrtQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="wkBscPsrQosDao" class="vn.com.vhc.vmsc2.statistics.dao.WkBscPsrQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="wkBscHsrQosDao" class="vn.com.vhc.vmsc2.statistics.dao.WkBscHsrQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="wkBscTrapcomQosDao" class="vn.com.vhc.vmsc2.statistics.dao.WkBscTrapcomQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="wkBscTrapeventQosDao" class="vn.com.vhc.vmsc2.statistics.dao.WkBscTrapeventQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="mnBscCoreDao" class="vn.com.vhc.vmsc2.statistics.dao.MnBscCoreDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="mnBscCssrQosDao" class="vn.com.vhc.vmsc2.statistics.dao.MnBscCssrQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="mnBscDcrsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.MnBscDcrsQosDAOImpl" >
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="mnBscDcrtQosDao" class="vn.com.vhc.vmsc2.statistics.dao.MnBscDcrtQosDAOImpl" >
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="mnBscPsrQosDao" class="vn.com.vhc.vmsc2.statistics.dao.MnBscPsrQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="mnBscHsrQosDao" class="vn.com.vhc.vmsc2.statistics.dao.MnBscHsrQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="mnBscTrapcomQosDao" class="vn.com.vhc.vmsc2.statistics.dao.MnBscTrapcomQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="mnBscTrapeventQosDao" class="vn.com.vhc.vmsc2.statistics.dao.MnBscTrapeventQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<!-- DY_MSC_QOS -->
+	<bean id="dyMscQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyMscQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="MnMscQosDao" class="vn.com.vhc.vmsc2.statistics.dao.MnMscQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="wkMscQosDao" class="vn.com.vhc.vmsc2.statistics.dao.WkMscQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<!-- HR_MSC_QOS -->
+	<bean id="hrMscQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrMscQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="mscDao" class="vn.com.vhc.vmsc2.statistics.dao.MscDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="hlrDao" class="vn.com.vhc.vmsc2.statistics.dao.HlrDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="summaryConfigDao" class="vn.com.vhc.vmsc2.statistics.dao.SummaryConfigDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="systemConfigDao" class="vn.com.vhc.vmsc2.statistics.dao.SystemConfigDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<!-- STP -->
+
+	<bean id="stpDao" class="vn.com.vhc.vmsc2.statistics.dao.StpDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="dyStpAssonciationDao" class="vn.com.vhc.vmsc2.statistics.dao.DyStpAssonciationQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="dyStpChecksumQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyStpChecksumQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="dyStpDestinationQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyStpDestinationQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="dyStpM3dataQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyStpM3dataQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="dyStpM3perfQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyStpM3perfQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="dyStpOutOfBlueQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyStpOutOfBlueQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="dyStpRetransmitionQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyStpRetransmitionQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="dyStpUtilisationQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyStpUtilisationQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="hrStpAssonciationDao" class="vn.com.vhc.vmsc2.statistics.dao.HrStpAssonciationQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="hrStpChecksumQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrStpChecksumQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="hrStpDestinationQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrStpDestinationQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="hrStpM3dataQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrStpM3dataQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="hrStpM3perfQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrStpM3perfQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="hrStpOutOfBlueQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrStpOutOfBlueQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="hrStpRetransmitionQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrStpRetransmitionQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="hrStpUtilisationQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrStpUtilisationQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="wkStpAssonciationDao" class="vn.com.vhc.vmsc2.statistics.dao.WkStpAssonciationQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="wkStpChecksumQosDao" class="vn.com.vhc.vmsc2.statistics.dao.WkStpChecksumQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="wkStpDestinationQosDao" class="vn.com.vhc.vmsc2.statistics.dao.WkStpDestinationQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="wkStpM3dataQosDao" class="vn.com.vhc.vmsc2.statistics.dao.WkStpM3dataQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="wkStpM3perfQosDao" class="vn.com.vhc.vmsc2.statistics.dao.WkStpM3perfQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="wkStpOutOfBlueQosDao" class="vn.com.vhc.vmsc2.statistics.dao.WkStpOutOfBlueQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="wkStpRetransmitionQosDao" class="vn.com.vhc.vmsc2.statistics.dao.WkStpRetransmitionQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="wkStpUtilisationQosDao" class="vn.com.vhc.vmsc2.statistics.dao.WkStpUtilisationQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="mnStpAssonciationDao" class="vn.com.vhc.vmsc2.statistics.dao.MnStpAssonciationQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="mnStpChecksumQosDao" class="vn.com.vhc.vmsc2.statistics.dao.MnStpChecksumQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="mnStpDestinationQosDao" class="vn.com.vhc.vmsc2.statistics.dao.MnStpDestinationQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="mnStpM3dataQosDao" class="vn.com.vhc.vmsc2.statistics.dao.MnStpM3dataQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="mnStpM3perfQosDao" class="vn.com.vhc.vmsc2.statistics.dao.MnStpM3perfQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="mnStpOutOfBlueQosDao" class="vn.com.vhc.vmsc2.statistics.dao.MnStpOutOfBlueQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="mnStpRetransmitionQosDao" class="vn.com.vhc.vmsc2.statistics.dao.MnStpRetransmitionQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="mnStpUtilisationQosDao" class="vn.com.vhc.vmsc2.statistics.dao.MnStpUtilisationQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<!-- STP -->
+
+	<!-- HR_HLR_QOS -->
+	<bean id="hrHlrAuthenQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrHlrAuthenQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="hrHlrMapQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrHlrMapQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="hrHlrRegisterQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrHlrRegisterQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="hrHlrSubscribersQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrHlrSubscribersQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<!-- DY_HLR_QOS -->
+	<bean id="dyHlrAuthenQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyHlrAuthenQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="dyHlrMapQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyHlrMapQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="dyHlrRegisterQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyHlrRegisterQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="dyHlrSubscribersQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyHlrSubscribersQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<!-- WK_HLR_QOS -->
+	<bean id="wkHlrAuthenQosDao" class="vn.com.vhc.vmsc2.statistics.dao.WkHlrAuthenQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="wkHlrMapQosDao" class="vn.com.vhc.vmsc2.statistics.dao.WkHlrMapQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="wkHlrRegisterQosDao" class="vn.com.vhc.vmsc2.statistics.dao.WkHlrRegisterQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="wkHlrSubscribersQosDao" class="vn.com.vhc.vmsc2.statistics.dao.WkHlrSubscribersQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<!-- MN_HLR_QOS -->
+	<bean id="mnHlrAuthenQosDao" class="vn.com.vhc.vmsc2.statistics.dao.MnHlrAuthenQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="mnHlrMapQosDao" class="vn.com.vhc.vmsc2.statistics.dao.MnHlrMapQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="mnHlrRegisterQosDao" class="vn.com.vhc.vmsc2.statistics.dao.MnHlrRegisterQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="mnHlrSubscribersQosDao" class="vn.com.vhc.vmsc2.statistics.dao.MnHlrSubscribersQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<!-- ROUTE_CORE -->
+	<bean id="routeDao" class="vn.com.vhc.vmsc2.statistics.dao.RouteDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="dyRouteCoreDao" class="vn.com.vhc.vmsc2.statistics.dao.DyRouteCoreDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="hrRouteCoreDao" class="vn.com.vhc.vmsc2.statistics.dao.HrRouteCoreDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="wkRouteCoreDao" class="vn.com.vhc.vmsc2.statistics.dao.WkRouteCoreDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="mnRouteCoreDao" class="vn.com.vhc.vmsc2.statistics.dao.MnRouteCoreDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="dyRouteCoreReportDao" class="vn.com.vhc.vmsc2.statistics.dao.DyRouteCoreReportDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="hrRouteCoreReportDao" class="vn.com.vhc.vmsc2.statistics.dao.HrRouteCoreReportDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="wkRouteCoreReportDao" class="vn.com.vhc.vmsc2.statistics.dao.WkRouteCoreReportDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="mnRouteCoreReportDao" class="vn.com.vhc.vmsc2.statistics.dao.MnRouteCoreReportDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- LINKSET -->
+	<bean id="s7linksetDao" class="vn.com.vhc.vmsc2.statistics.dao.S7linksetDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="hrLinksetReportDao" class="vn.com.vhc.vmsc2.statistics.dao.HrLinksetReportDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="dyLinksetReportDao" class="vn.com.vhc.vmsc2.statistics.dao.DyLinksetReportDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="wkLinksetReportDao" class="vn.com.vhc.vmsc2.statistics.dao.WkLinksetReportDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="mnLinksetReportDao" class="vn.com.vhc.vmsc2.statistics.dao.MnLinksetReportDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="dyLinksetDao" class="vn.com.vhc.vmsc2.statistics.dao.DyLinksetDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="hrLinksetDao" class="vn.com.vhc.vmsc2.statistics.dao.HrLinksetDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="wkLinksetDao" class="vn.com.vhc.vmsc2.statistics.dao.WkLinksetDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="mnLinksetDao" class="vn.com.vhc.vmsc2.statistics.dao.MnLinksetDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="hProvincesCodeDao" class="vn.com.vhc.vmsc2.statistics.dao.HProvincesCodeDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="cellDao" class="vn.com.vhc.vmsc2.statistics.dao.CellDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- HR_H_BSC_QOS -->
+	<bean id="hrHBscCpuQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrHBscCpuQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="hrHBscHoQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrHBscHoQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="hrHBscPchQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrHBscPchQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="hrHBscSdcchQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrHBscSdcchQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="hrHBscTchQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrHBscTchQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- DY_H_BSC_QOS -->
+	<bean id="dyHBscCpuQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyHBscCpuQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="dyHBscHoQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyHBscHoQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="dyHBscPchQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyHBscPchQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="dyHBscSdcchQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyHBscSdcchQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="dyHBscTchQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyHBscTchQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- WK_H_BSC_QOS -->
+	<bean id="wkHBscCpuQosDao" class="vn.com.vhc.vmsc2.statistics.dao.WkHBscCpuQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="wkHBscHoQosDao" class="vn.com.vhc.vmsc2.statistics.dao.WkHBscHoQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="wkHBscPchQosDao" class="vn.com.vhc.vmsc2.statistics.dao.WkHBscPchQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="wkHBscSdcchQosDao" class="vn.com.vhc.vmsc2.statistics.dao.WkHBscSdcchQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="wkHBscTchQosDao" class="vn.com.vhc.vmsc2.statistics.dao.WkHBscTchQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- MN_H_BSC_QOS -->
+	<bean id="mnHBscCpuQosDao" class="vn.com.vhc.vmsc2.statistics.dao.MnHBscCpuQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="mnHBscHoQosDao" class="vn.com.vhc.vmsc2.statistics.dao.MnHBscHoQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="mnHBscPchQosDao" class="vn.com.vhc.vmsc2.statistics.dao.MnHBscPchQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="mnHBscSdcchQosDao" class="vn.com.vhc.vmsc2.statistics.dao.MnHBscSdcchQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="mnHBscTchQosDao" class="vn.com.vhc.vmsc2.statistics.dao.MnHBscTchQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- CELL -->
+	<bean id="vRpHrCellDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrCellDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="vRpDyCellDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="vRpWkCellDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkCellDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnCellDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnCellDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+
+	<bean id="vRpDyCellQosBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellQosBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpDyCellBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="vRpWkCellBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkCellBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnCellBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnCellBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpHrCellGprsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrCellGprsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="vRpDyCellGprsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellGprsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkCellGprsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkCellGprsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="vRpMnCellGprsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnCellGprsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpHrCellGprsCsDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrCellGprsCsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="vRpDyCellGprsCsDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellGprsCsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkCellGprsCsDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkCellGprsCsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="vRpMnCellGprsCsDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnCellGprsCsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpDyCellGprsCsBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellGprsCsBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkCellGprsCsBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkCellGprsCsBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnCellGprsCsBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnCellGprsCsBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpDyCellGprsQosBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellGprsQosBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- CELL CAPACITY  -->
+	<bean id="vRpDyCellCapacityDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellCapacityDAOImpl">
+	<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkCellGprsQosBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkCellGprsQosBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkCellCapacityDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkCellCapacityDAOImpl">
+	<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnCellGprsQosBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnCellGprsQosBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- V_RP_BSC -->
+	<bean id="vRpDyBscDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBscDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpDyBscBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBscBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpWkBscDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkBscDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpMnBscDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnBscDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpWkBscBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkBscBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpMnBscBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnBscBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpWkBscGprsCsDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkBscGprsCsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpMnBscGprsCsDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnBscGprsCsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpWkBscGprsCsBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkBscGprsCsBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpMnBscGprsCsBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnBscGprsCsBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpWkBscGprsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkBscGprsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpMnBscGprsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnBscGprsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpWkBscGprsQosBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkBscGprsQosBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpMnBscGprsQosBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnBscGprsQosBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpMnCellCapacityDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnCellCapacityDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpHrBscDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrBscDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<!-- CELL HO  -->
+	<bean id="vRpHrCellHoDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrCellHoDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpDyBscGprsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBscGprsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="vRpDyCellHoDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellHoDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpDyBscGprsQosBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBscGprsQosBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkCellHoDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkCellHoDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpHrBscGprsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrBscGprsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnCellHoDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnCellHoDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpDyBscGprsCsDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBscGprsCsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- CELL HO BH -->
+	<bean id="vRpDyCellHoBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellHoBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpDyBscGprsCsBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBscGprsCsBhDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkCellHoBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkCellHoBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpHrBscGprsCsDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrBscGprsCsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnCellHoBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnCellHoBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- SITE HO  -->
+	<bean id="vRpHrSiteHoDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrSiteHoDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpDySiteHoDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDySiteHoDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkSiteHoDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkSiteHoDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnSiteHoDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnSiteHoDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- SITE HO BH -->
+	<bean id="vRpDySiteHoBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDySiteHoBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkSiteHoBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkSiteHoBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnSiteHoBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnSiteHoBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- SITE QOS  -->
+	<bean id="vRpHrSiteQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrSiteQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpDySiteQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDySiteQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkSiteQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkSiteQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnSiteQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnSiteQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- SITE QOS BH -->
+	<bean id="vRpDySiteQosBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDySiteQosBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkSiteQosBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkSiteQosBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnSiteQosBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnSiteQosBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<!-- RP_PROVINCE -->
+	<bean id="vRpDyProvinceDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyProvinceDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<!-- BSC HO  -->
+	<bean id="vRpHrBscHoDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrBscHoDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="vRpDyProvinceBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyProvinceBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpDyBscHoDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBscHoDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<!-- BSC HO  -->
+	
+	<bean id="vRpMnProvinceDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnProvinceDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpWkBscHoDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkBscHoDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="vRpMnProvinceBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnProvinceBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpMnBscHoDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnBscHoDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="vRpWkProvinceDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkProvinceDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<!-- BSC HO BH -->
+	<bean id="vRpDyBscHoBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBscHoBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="vRpWkProvinceBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkProvinceBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpWkBscHoBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkBscHoBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="vRpHrProvinceDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrProvinceDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpMnBscHoBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnBscHoBhDAOImpl">
+<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<!-- RP_LOCATION -->
+	<bean id="vRpDyLocationDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyLocationDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<!-- PROVINCE GPRS CS -->
+	<bean id="vRpHrProvinceGprsCsDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrProvinceGprsCsDAOImpl">
+<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpDyLocationBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyLocationBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpDyProvinceGprsCsDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyProvinceGprsCsDAOImpl">
+<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="vRpMnLocationDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnLocationDAOImpl">
+<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="vRpWkProvinceGprsCsDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkProvinceGprsCsDAOImpl">
+<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnLocationBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnLocationBhDAOImpl">
+<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- BSC HO BH -->
+	<bean id="vRpMnProvinceGprsCsDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnProvinceGprsCsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkLocationDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkLocationDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<!-- PROVINCE GPRS CS BH-->
+	<bean id="vRpDyProvinceGprsCsBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyProvinceGprsCsBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="vRpWkLocationBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkLocationBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="vRpWkProvinceGprsCsBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkProvinceGprsCsBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- RP_LOCATION -->
+	<!-- PROVINCE GPRS CS -->
+
+	<bean id="vRpHrLocationDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrLocationDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpMnProvinceGprsCsBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnProvinceGprsCsBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<!-- PROVINCE GPRS QOS -->
+	<bean id="vRpHrProvinceGprsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrProvinceGprsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpDyProvinceGprsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyProvinceGprsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkProvinceGprsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkProvinceGprsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnProvinceGprsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnProvinceGprsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- PROVINCE GPRS QOS BH-->
+	<bean id="vRpDyProvinceGprsQosBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyProvinceGprsQosBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkProvinceGprsQosBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkProvinceGprsQosBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnProvinceGprsQosBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnProvinceGprsQosBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- LOCATION GPRS CS -->
+	<bean id="vRpHrLocationGprsCsDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrLocationGprsCsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpDyLocationGprsCsDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyLocationGprsCsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkLocationGprsCsDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkLocationGprsCsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnLocationGprsCsDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnLocationGprsCsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- LOCATION GPRS CS BH-->
+	<bean id="vRpDyLocationGprsCsBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyLocationGprsCsBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkLocationGprsCsBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkLocationGprsCsBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnLocationGprsCsBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnLocationGprsCsBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- LOCATION GPRS QOS -->
+	<bean id="vRpHrLocationGprsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrLocationGprsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpDyLocationGprsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyLocationGprsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkLocationGprsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkLocationGprsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnLocationGprsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnLocationGprsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- LOCATION GPRS QOS BH-->
+	<bean id="vRpDyLocationGprsQosBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyLocationGprsQosBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkLocationGprsQosBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkLocationGprsQosBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnLocationGprsQosBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnLocationGprsQosBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- BAD CELL-->
+	<bean id="badcellConfigDao" class="vn.com.vhc.vmsc2.statistics.dao.BadcellConfigDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpHrCellQosHoDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrCellQosHoDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- USER -->
+	<bean id="userDao" class="vn.com.vhc.vmsc2.statistics.dao.UserDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="roleDao" class="vn.com.vhc.vmsc2.statistics.dao.RoleDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="userRoleDao" class="vn.com.vhc.vmsc2.statistics.dao.UserRoleDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="messageCodesDao" class="vn.com.vhc.vmsc2.statistics.dao.MessageCodesDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- CELL TO CELL HO -->
+	<bean id="hrCellToCellQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrCellToCellQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="dyCellToCellQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyCellToCellQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="wkCellToCellQosDao" class="vn.com.vhc.vmsc2.statistics.dao.WkCellToCellQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="mnCellToCellQosDao" class="vn.com.vhc.vmsc2.statistics.dao.MnCellToCellQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- BAD CELL -->
+	
+	<bean id="dyBadCellDao" class="vn.com.vhc.vmsc2.statistics.dao.DyBadCellDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="dyBadCellBscDao" class="vn.com.vhc.vmsc2.statistics.dao.DyBadCellBscDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="dyBadCellProvinceDao" class="vn.com.vhc.vmsc2.statistics.dao.DyBadCellProvinceDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="dyBadCellRegionDao" class="vn.com.vhc.vmsc2.statistics.dao.DyBadCellRegionDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- DISTRICT QOS -->
+	<bean id="vRpDyDistrictDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyDistrictDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpHrDistrictDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrDistrictDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpWkDistrictDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkDistrictDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpMnDistrictDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnDistrictDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpDyDistrictBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyDistrictBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpWkDistrictBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkDistrictBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpMnDistrictBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnDistrictBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- DISTRICT GPRS CS -->
+	<bean id="vRpHrDistrictGprsCsDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrDistrictGprsCsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpDyDistrictGprsCsDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyDistrictGprsCsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpWkDistrictGprsCsDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkDistrictGprsCsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpMnDistrictGprsCsDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnDistrictGprsCsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- DISTRICT GPRS CS BH -->
+	<bean id="vRpDyDistrictGprsCsBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyDistrictGprsCsBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpWkDistrictGprsCsBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkDistrictGprsCsBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpMnDistrictGprsCsBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnDistrictGprsCsBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- DISTRICT GPRS QOS -->
+	<bean id="vRpHrDistrictGprsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrDistrictGprsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpDyDistrictGprsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyDistrictGprsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpWkDistrictGprsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkDistrictGprsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpMnDistrictGprsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnDistrictGprsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- DISTRICT GPRS QOS BH -->
+	<bean id="vRpDyDistrictGprsQosBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyDistrictGprsQosBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpWkDistrictGprsQosBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkDistrictGprsQosBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpMnDistrictGprsQosBhDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnDistrictGprsQosBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="highlightConfigDao" class="vn.com.vhc.vmsc2.statistics.dao.HighlightConfigDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- CELL DCRT QOS -->
+	<bean id="hrCellDcrtQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrCellDcrtQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="dyCellDcrtQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyCellDcrtQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- PROVINCE DCRT QOS -->
+	<bean id="hrProvinceDcrtQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrProvinceDcrtQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="dyProvinceDcrtQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyProvinceDcrtQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- CELL DCRS QOS -->
+	<bean id="hrCellDcrsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrCellDcrsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="dyCellDcrsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyCellDcrsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- PROVINCE DCRS QOS -->
+	<bean id="hrProvinceDcrsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrProvinceDcrsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="dyProvinceDcrsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyProvinceDcrsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- CELL HSR OUL QOS -->
+	<bean id="hrCellHsrOulQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrCellHsrOulQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="dyCellHsrOulQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyCellHsrOulQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- PROVINCE HSR OUL QOS -->
+	<bean id="hrProvinceHsrOulQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrProvinceHsrOulQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="dyProvinceHsrOulQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyProvinceHsrOulQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- BSC HSR OUL QOS -->
+	<bean id="vRpHrBscHsrOulQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrBscHsrOulQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpDyBscHsrOulQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBscHsrOulQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- BSC CPLOAD QOS -->
+	<bean id="hrBscCploadQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrBscCploadQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="dyBscCploadQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyBscCploadQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="wkBscCploadQosDao" class="vn.com.vhc.vmsc2.statistics.dao.WkBscCploadQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="mnBscCploadQosDao" class="vn.com.vhc.vmsc2.statistics.dao.MnBscCploadQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- BRANCH TRAFFIC --> 
+	<bean id="wkBranchDao" class="vn.com.vhc.vmsc2.statistics.dao.WkBranchDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="mnBranchDao" class="vn.com.vhc.vmsc2.statistics.dao.MnBranchDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+		
+	<bean id="vRpDyRegionDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyRegionDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+		
+	<bean id="vRpDyRegionGprsQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyRegionGprsQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- BRANCH -->
+	<bean id="vRpDyBranchDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBranchDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpHrBranchDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrBranchDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpWkBranchDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkBranchDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="vRpMnBranchDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnBranchDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- BSC TRAFFIC QOS -->
+	<bean id="vRpHrBscTrafficQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrBscTrafficQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpDyBscTrafficQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBscTrafficQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- CELL TRAFFIC QOS -->
+	<bean id="vRpHrCellTrafficQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrCellTrafficQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpDyCellTrafficQosDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellTrafficQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- PROVINCE TRAFFIC QOS -->
+	<bean id="hrProvinceTrafficQosDao" class="vn.com.vhc.vmsc2.statistics.dao.HrProvinceTrafficQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="dyProvinceTrafficQosDao" class="vn.com.vhc.vmsc2.statistics.dao.DyProvinceTrafficQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- CELL IBC -->
+	<bean id="vRpHrCellIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrCellIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="vRpDyCellIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="vRpWkCellIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkCellIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnCellIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnCellIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+
+	<bean id="vRpDyCellQosBhIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellQosBhIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpDyCellBhIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellBhIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="vRpWkCellBhIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkCellBhIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnCellBhIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnCellBhIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpHrCellHoIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrCellHoIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpDyCellHoIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellHoIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkCellHoIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkCellHoIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnCellHoIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnCellHoIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpDyCellHoBhIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellHoBhIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkCellHoBhIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkCellHoBhIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnCellHoBhIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnCellHoBhIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- V_RP_BSC_IBC -->
+	<bean id="vRpDyBscIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBscIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpDyBscBhIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBscBhIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpWkBscIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkBscIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpMnBscIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnBscIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpWkBscBhIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkBscBhIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpMnBscBhIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnBscBhIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpHrBscIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrBscIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpHrBscHoIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrBscHoIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpDyBscHoIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBscHoIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpWkBscHoIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkBscHoIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpMnBscHoIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnBscHoIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpDyBscHoBhIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBscHoBhIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpWkBscHoBhIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkBscHoBhIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpMnBscHoBhIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnBscHoBhIbcDAOImpl">
+<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+		
+	<!-- DISTRICT QOS IBC -->
+	<bean id="vRpDyDistrictIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyDistrictIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpHrDistrictIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrDistrictIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpWkDistrictIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkDistrictIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpMnDistrictIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnDistrictIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- PROVINCE QOS IBC-->
+	<bean id="vRpDyProvinceIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyProvinceIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpHrProvinceIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrProvinceIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkProvinceIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkProvinceIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnProvinceIbcDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnProvinceIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkBranchTrafDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkBranchTrafDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnBranchTrafDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnBranchTrafDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- TRAFFIC AND BLOCK -->
+	<bean id="vRpDyCellTrafficDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellTrafficDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpDyCellTrafficBscDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellTrafficBscDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpDyCellTrafficProvinceDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellTrafficProvinceDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpDyCellTrafficRegionDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellTrafficRegionDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpDyCellBlkDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellBlkDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpDyCellBlkBscDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellBlkBscDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpDyCellBlkProvinceDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellBlkProvinceDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="vRpDyCellRegionDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellBlkRegionDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- 3G -->
+	<bean id="vRpDyCell3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCell3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpDyCellBh3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellBh3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpHrCell3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrCell3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnCell3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnCell3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkCell3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkCell3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnCellBh3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnCellBh3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkCellBh3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkCellBh3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpDyBsc3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBsc3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpHrBsc3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrBsc3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnBsc3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnBsc3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkBsc3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkBsc3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpDyDistrict3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyDistrict3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpHrDistrict3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrDistrict3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnDistrict3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnDistrict3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkDistrict3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkDistrict3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpDyProvince3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyProvince3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpHrProvince3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrProvince3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnProvince3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnProvince3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkProvince3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkProvince3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpDyBranch3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBranch3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpHrBranch3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrBranch3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnBranch3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnBranch3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkBranch3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkBranch3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnBranchTraff3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnBranchTraff3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpWkBranchTraff3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkBranchTraff3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpDyRegion3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyRegion3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpDyRegion2G3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyRegion2G3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="bsc3G" class="vn.com.vhc.vmsc2.statistics.dao.Bsc3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="cell3G" class="vn.com.vhc.vmsc2.statistics.dao.Cell3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpDyCellCssrDetails3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellCssrDetails3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpDyCellDropDetails3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellDropDetails3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpDyBscCssrDetails3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBscCssrDetails3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpDyBscDropDetails3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBscDropDetails3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpDyProvinceCssrDeta3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyProvinceCssrDeta3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpDyProvinceDropDeta3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyProvinceDropDeta3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpHrCellCssrDetails3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrCellCssrDetails3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpHrCellDropDetails3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrCellDropDetails3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpHrBscCssrDetails3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrBscCssrDetails3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpHrBscDropDetails3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrBscDropDetails3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpHrProvinceCssrDeta3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrProvinceCssrDeta3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpHrProvinceDropDeta3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrProvinceDropDeta3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpDyBranch2G3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBranch2G3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpDyDistrict2G3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyDistrict2G3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpDyBsc2GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBsc2GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpDyBscWelcomme3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBscWelcome3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpDySiteGrowth2G3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDySiteGrowth2G3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnBranchTraffic2G3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnBranchTraffic2G3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpMnRegion2G3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnRegion2G3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpQrBranchTraffic2G3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpQrBranchTraffic2G3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpQrRegion2G3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpQrRegion2G3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpYrBranchTraffic2G3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpYrBranchTraffic2G3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpYrRegion2G3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpYrRegion2G3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpDyNodeChange2GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyNodeChange2GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpDyNodeChange3GDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyNodeChange3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpDyBadCell3G" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBadCell3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpDyBadCellBsc3G" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBadCellBsc3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpDyBadCellProvince3G" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBadCellProvince3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpDyBadCellRegion3G" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBadCellRegion3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpDyCellTraffProvince3G" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellTraffProvince3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpDyCellTraffic3G" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellTraffic3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpDyCellTrafficBsc3G" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellTrafficBsc3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpDyCellTrafficRegion3G" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellTrafficRegion3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpDyCellToCellQos3G" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellToCellQos3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpHrCellToCellQos3G" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrCellToCellQos3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpHrSgsnQos" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrSgsnQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpDySgsnSummary" class="vn.com.vhc.vmsc2.statistics.dao.VRpDySgsnSummaryDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpWkSgsnQos" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkSgsnQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpMnSgsnQos" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnSgsnQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="Sgsn" class="vn.com.vhc.vmsc2.statistics.dao.SgsnDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="WkBadCellBsc" class="vn.com.vhc.vmsc2.statistics.dao.WkBadCellBscDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="WkBadCellRegion" class="vn.com.vhc.vmsc2.statistics.dao.WkBadCellRegionDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="WkCellTrafficProvince3g" class="vn.com.vhc.vmsc2.statistics.dao.WkCellTrafficProvince3gDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="VRpDyCellTrafficDistrict" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellTrafficDistrictDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="WkBadCellBsc3g" class="vn.com.vhc.vmsc2.statistics.dao.WkBadCellBsc3gDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="MnCellTrafficBsc" class="vn.com.vhc.vmsc2.statistics.dao.MnCellTrafficBscDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="WkCellTrafficRegion3g" class="vn.com.vhc.vmsc2.statistics.dao.WkCellTrafficRegion3gDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="MnCellTrafficRegion" class="vn.com.vhc.vmsc2.statistics.dao.MnCellTrafficRegionDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="MnBadCellRegion" class="vn.com.vhc.vmsc2.statistics.dao.MnBadCellRegionDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="MnCellTrafficBsc3g" class="vn.com.vhc.vmsc2.statistics.dao.MnCellTrafficBsc3gDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="MnCellTrafficDistrict" class="vn.com.vhc.vmsc2.statistics.dao.MnCellTrafficDistrictDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="WkCellBlkProvince" class="vn.com.vhc.vmsc2.statistics.dao.WkCellBlkProvinceDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="MnCellBlkDistrict" class="vn.com.vhc.vmsc2.statistics.dao.MnCellBlkDistrictDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="WkBadCellProvince3g" class="vn.com.vhc.vmsc2.statistics.dao.WkBadCellProvince3gDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="WkCellTrafficBsc" class="vn.com.vhc.vmsc2.statistics.dao.WkCellTrafficBscDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="WkCellTrafficDistrict3g" class="vn.com.vhc.vmsc2.statistics.dao.WkCellTrafficDistrict3gDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="DyBadCellDistrict" class="vn.com.vhc.vmsc2.statistics.dao.DyBadCellDistrictDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="WkCellTrafficRegion" class="vn.com.vhc.vmsc2.statistics.dao.WkCellTrafficRegionDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="MnBadCellProvince" class="vn.com.vhc.vmsc2.statistics.dao.MnBadCellProvinceDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="WkBadCellDistrict3g" class="vn.com.vhc.vmsc2.statistics.dao.WkBadCellDistrict3gDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="WkBadCellDistrict" class="vn.com.vhc.vmsc2.statistics.dao.WkBadCellDistrictDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+		
+	<bean id="WkCellTrafficBsc3g" class="vn.com.vhc.vmsc2.statistics.dao.WkCellTrafficBsc3gDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="MnBadCellDistrict3g" class="vn.com.vhc.vmsc2.statistics.dao.MnBadCellDistrict3gDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="MnBadCellDistrict" class="vn.com.vhc.vmsc2.statistics.dao.MnBadCellDistrictDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="MnBadCellRegion3g" class="vn.com.vhc.vmsc2.statistics.dao.MnBadCellRegion3gDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="VRpDyCellBlkDistrict" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellBlkDistrictDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="MnCellTrafficDistrict3g" class="vn.com.vhc.vmsc2.statistics.dao.MnCellTrafficDistrict3gDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="WkCellBlkRegionDAO" class="vn.com.vhc.vmsc2.statistics.dao.WkCellBlkRegionDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="WkCellTrafficProvince" class="vn.com.vhc.vmsc2.statistics.dao.WkCellTrafficProvinceDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="WkBadCellRegion3g" class="vn.com.vhc.vmsc2.statistics.dao.WkBadCellRegion3gDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="MnCellTrafficRegion3g" class="vn.com.vhc.vmsc2.statistics.dao.MnCellTrafficRegion3gDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="WkCellBlkDistrict" class="vn.com.vhc.vmsc2.statistics.dao.WkCellBlkDistrictDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="WkCellBlkBsc" class="vn.com.vhc.vmsc2.statistics.dao.WkCellBlkBscDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="MnBadCellBsc" class="vn.com.vhc.vmsc2.statistics.dao.MnBadCellBscDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="MnCellBlkBsc" class="vn.com.vhc.vmsc2.statistics.dao.MnCellBlkBscDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="MnCellBlkProvince" class="vn.com.vhc.vmsc2.statistics.dao.MnCellBlkProvinceDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="VRpDyCellTrafficDistrict3g" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellTrafficDistrict3gDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="WkCellTrafficDistrict" class="vn.com.vhc.vmsc2.statistics.dao.WkCellTrafficDistrictDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="MnCellTrafficProvince3g" class="vn.com.vhc.vmsc2.statistics.dao.MnCellTrafficProvince3gDAOImpl">
+			<property name="sqlMapClient" ref="sqlMapClient" />
+		</bean>
+	
+	<bean id="MnBadCellProvince3g" class="vn.com.vhc.vmsc2.statistics.dao.MnBadCellProvince3gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="MnCellTrafficProvince" class="vn.com.vhc.vmsc2.statistics.dao.MnCellTrafficProvinceDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="MnBadCellBsc3g" class="vn.com.vhc.vmsc2.statistics.dao.MnBadCellBsc3gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="MnCellBlkRegion" class="vn.com.vhc.vmsc2.statistics.dao.MnCellBlkRegionDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="WkBadCellProvince" class="vn.com.vhc.vmsc2.statistics.dao.WkBadCellProvinceDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="VRpDyBadCellDistrict3g" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBadCellDistrict3gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- Alarm IRSR 3G-->
+	<bean id="VRpDyIrsrAlarmBsc3g" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyIrsrAlarmBsc3gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpMnIrsrAlarmBsc3g" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnIrsrAlarmBsc3gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpQrIrsrAlarmBsc3g" class="vn.com.vhc.vmsc2.statistics.dao.VRpQrIrsrAlarmBsc3gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpYrIrsrAlarmBsc3g" class="vn.com.vhc.vmsc2.statistics.dao.VRpYrIrsrAlarmBsc3gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpDyIrsrAlarmRegion3g" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyIrsrAlarmRegion3gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpMnIrsrAlarmRegion3g" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnIrsrAlarmRegion3gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpQrIrsrAlarmRegion3g" class="vn.com.vhc.vmsc2.statistics.dao.VRpQrIrsrAlarmRegion3gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpYrIrsrAlarmRegion3g" class="vn.com.vhc.vmsc2.statistics.dao.VRpYrIrsrAlarmRegion3gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<!-- Alarm IRSR 2G -->
+	<bean id="VRpDyIrsrAlarmBsc2g" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyIrsrAlarmBsc2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpMnIrsrAlarmBsc2g" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnIrsrAlarmBsc2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpQrIrsrAlarmBsc2g" class="vn.com.vhc.vmsc2.statistics.dao.VRpQrIrsrAlarmBsc2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpYrIrsrAlarmBsc2g" class="vn.com.vhc.vmsc2.statistics.dao.VRpYrIrsrAlarmBsc2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpDyIrsrAlarmRegion2g" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyIrsrAlarmRegion2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpMnIrsrAlarmRegion2g" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnIrsrAlarmRegion2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpQrIrsrAlarmRegion2g" class="vn.com.vhc.vmsc2.statistics.dao.VRpQrIrsrAlarmRegion2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpYrIrsrAlarmRegion2g" class="vn.com.vhc.vmsc2.statistics.dao.VRpYrIrsrAlarmRegion2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpDyRegionIbc" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyRegionIbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- DATA 2G -->
+	<bean id="VRpDyRegionData2g" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyRegionData2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpDyBscData2g" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBscData2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpDyDistrictData2g" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyDistrictData2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpDyCellData2g" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellData2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpHrCellData2g" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrCellData2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpHrBscData2g" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrBscData2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpHrDistrictData2g" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrDistrictData2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpWkCellData2g" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkCellData2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpWkBscData2g" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkBscData2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpWkDistrictData2g" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkDistrictData2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpMnCellData2g" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnCellData2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpMnBscData2g" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnBscData2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpMnDistrictData2g" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnDistrictData2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpDyIrsrAlarmDistrict3g" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyIrsrAlarmDistrict3gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpMnIrsrAlarmDistrict3g" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnIrsrAlarmDistrict3gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpQrIrsrAlarmDistrict3g" class="vn.com.vhc.vmsc2.statistics.dao.VRpQrIrsrAlarmDistrict3gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpYrIrsrAlarmDistrict3g" class="vn.com.vhc.vmsc2.statistics.dao.VRpYrIrsrAlarmDistrict3gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpDyIrsrAlarmDistrict2g" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyIrsrAlarmDistrict2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpMnIrsrAlarmDistrict2g" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnIrsrAlarmDistrict2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpQrIrsrAlarmDistrict2g" class="vn.com.vhc.vmsc2.statistics.dao.VRpQrIrsrAlarmDistrict2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpYrIrsrAlarmDistrict2g" class="vn.com.vhc.vmsc2.statistics.dao.VRpYrIrsrAlarmDistrict2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- ISRS SITE -->
+	<bean id="VRpDyIrsrAlarmSite2g" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyIrsrAlarmSite2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpDyIrsrAlarmSite3g" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyIrsrAlarmSite3gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- ISRS SITE -->
+	<bean id="DyRouteCoreBh" class="vn.com.vhc.vmsc2.statistics.dao.DyRouteCoreBhDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="DyRouteCoreBhRp" class="vn.com.vhc.vmsc2.statistics.dao.DyRouteCoreBhReportDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<!-- CHECKS TABLESAPACE -->
+	<bean id="dbadatafiles" class="vn.com.vhc.vmsc2.statistics.dao.dbadatafilesDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean> 
+	<bean id="dbafreespace" class="vn.com.vhc.vmsc2.statistics.dao.dbafreespaceDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- Center QOS 2G -->
+	<bean id="HrRegionQos" class="vn.com.vhc.vmsc2.statistics.dao.HrRegionQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean> 
+	<bean id="DyRegionQos" class="vn.com.vhc.vmsc2.statistics.dao.DyRegionQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="MnRegionQos" class="vn.com.vhc.vmsc2.statistics.dao.MnRegionQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="QrRegionQos" class="vn.com.vhc.vmsc2.statistics.dao.QrRegionQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="YrRegionQos" class="vn.com.vhc.vmsc2.statistics.dao.YrRegionQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- IP BACKBONE -->
+	<bean id="VRpipbbdata" class="vn.com.vhc.vmsc2.statistics.dao.VRpipbbdataDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VDyIpbbLink" class="vn.com.vhc.vmsc2.statistics.dao.VDyIpbbLinkDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VDyIpbbInternet" class="vn.com.vhc.vmsc2.statistics.dao.VDyIpbbInternetDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VHrIpbbInternet" class="vn.com.vhc.vmsc2.statistics.dao.VHrIpbbInternetDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VHrIpbbLink" class="vn.com.vhc.vmsc2.statistics.dao.VHrIpbbLinkDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="ReIpbbBwlist" class="vn.com.vhc.vmsc2.statistics.dao.ReIpbbBwlistDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- FOR BE -->
+	<bean id="VRpDyHlrforbe" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyHlrforbeDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpHrHlrforbe" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrHlrforbeDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="Hhlr" class="vn.com.vhc.vmsc2.statistics.dao.HhlrDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<!-- FOR FE -->
+	<bean id="VRpDyHlrForFe" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyHlrForFeDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpHrHlrForFe" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrHlrForFeDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- PS CORE_GGSN -->
+	<bean id="VrpHrGGSNQos" class="vn.com.vhc.vmsc2.statistics.dao.VrpHrGGSNQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VrpDyGgsnSummary" class="vn.com.vhc.vmsc2.statistics.dao.VrpDyGgsnSummaryDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VrpWkGGSNQos" class="vn.com.vhc.vmsc2.statistics.dao.VrpWkGGSNQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VrpMnGGSNQos" class="vn.com.vhc.vmsc2.statistics.dao.VrpMnGGSNQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="Hggsn" class="vn.com.vhc.vmsc2.statistics.dao.HggsnDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpDyHlrM2000" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyHlrM2000DAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpHrHlrM2000" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrHlrM2000DAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VHrCellData2G" class="vn.com.vhc.vmsc2.statistics.dao.VHrCellData2GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VDyCellData2G" class="vn.com.vhc.vmsc2.statistics.dao.VDyCellData2GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VWkCellData2G" class="vn.com.vhc.vmsc2.statistics.dao.VWkCellData2GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VMnCellData2G" class="vn.com.vhc.vmsc2.statistics.dao.VMnCellData2GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<!-- IPBB_BWLIST -->
+	<bean id="HIpbbBwlist" class="vn.com.vhc.vmsc2.statistics.dao.HIpbbBwlistDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpHrStpDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrStpDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpDyStpDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyStpDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean> 
+	
+	
+	<bean id="VRpDyIpbbInternetDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyIpbbInternetDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpHrIpbbInternetDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrIpbbInternetDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean> 
+	
+	<bean id="KpiMappingDAO" class="vn.com.vhc.vmsc2.statistics.dao.KpiMappingDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean> 
+	<bean id="VRpDyBscResuorceDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBscResuorceDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean> 
+	
+	<bean id="VrpMnIpbbLink1" class="vn.com.vhc.vmsc2.statistics.dao.VrpMnIpbbLink1DAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	 
+	<bean id="VrpMnIpbbLink2" class="vn.com.vhc.vmsc2.statistics.dao.VrpMnIpbbLink2DAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="sysUsersDao" class="vn.com.vhc.vmsc2.statistics.dao.SysUsersDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <bean id="VRpDyHlrForGtmscDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyHlrForGtmscDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean> 
+    <bean id="VRpDyHlrForMgwDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyHlrForMgwDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean> 
+    <bean id="VRpHrHlrForGtmscDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrHlrForGtmscDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean> 
+    <bean id="VRpHrHlrForMgwDao" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrHlrForMgwDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean> 
+    
+    <bean id="DyIpbbFwDao" class="vn.com.vhc.vmsc2.statistics.dao.DyIpbbFwDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean> 
+    <bean id="HrIpbbFwDao" class="vn.com.vhc.vmsc2.statistics.dao.HrIpbbFwDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean> 
+    
+    <bean id="DyBscCploadDao" class="vn.com.vhc.vmsc2.statistics.dao.DyBscCploadDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean> 
+    
+    <bean id="HrBscCploadDao" class="vn.com.vhc.vmsc2.statistics.dao.HrBscCploadDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean> 
+    
+    <bean id="DyBscCpload3gDao" class="vn.com.vhc.vmsc2.statistics.dao.DyBscCpload3gDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <bean id="HrBscCpload3gDao" class="vn.com.vhc.vmsc2.statistics.dao.HrBscCpload3gDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <bean id="DyBscUtilce3gDao" class="vn.com.vhc.vmsc2.statistics.dao.DyBscUtilce3gDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <bean id="HrBscUtilce3gDao" class="vn.com.vhc.vmsc2.statistics.dao.HrBscUtilce3gDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean> 
+    
+    <bean id="DyBscUtilbw3gDao" class="vn.com.vhc.vmsc2.statistics.dao.DyBscUtilbw3gDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <bean id="HrBscUtilbw3gDao" class="vn.com.vhc.vmsc2.statistics.dao.HrBscUtilbw3gDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean> 
+    
+    <bean id="DyBscUtilbwPort3gDao" class="vn.com.vhc.vmsc2.statistics.dao.DyBscUtilbwPort3gDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <bean id="HrBscUtilbwPort3gDao" class="vn.com.vhc.vmsc2.statistics.dao.HrBscUtilbwPort3gDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean> 
+    
+    <bean id="HrBscGprsDao" class="vn.com.vhc.vmsc2.statistics.dao.HrBscGprsDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <bean id="DyBscGprsDao" class="vn.com.vhc.vmsc2.statistics.dao.DyBscGprsDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    
+    <bean id="DyBscTrauUtilDao" class="vn.com.vhc.vmsc2.statistics.dao.DyBscTrauUtilDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <bean id="HrBscTrauUtilDao" class="vn.com.vhc.vmsc2.statistics.dao.HrBscTrauUtilDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <bean id="DyBscSignalUtilDao" class="vn.com.vhc.vmsc2.statistics.dao.DyBscSignalUtilDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <!-- V_RP_CELL_QOS_DAO -->
+     <bean id="VRpHrCellQosDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrCellQosDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <bean id="VRpDyCellQosDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellQosDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+     <bean id="VRpMnCellQosDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnCellQosDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <bean id="VRpWkCellQosDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkCellQosDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+   <!--  BSC 3G QOS -->
+    <bean id="VRpHrBsc3gQosDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrBsc3gQosDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="VRpDyBsc3gQosDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyBsc3gQosDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="VRpMnBsc3gQosDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnBsc3gQosDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="VRpWkBsc3gQosDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkBsc3gQosDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <bean id="HrBscSignalUtilDao" class="vn.com.vhc.vmsc2.statistics.dao.HrBscSignalUtilDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+     <bean id="SysMenuDAO" class="vn.com.vhc.vmsc2.statistics.dao.SysMenuDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+     <bean id="SysLogDAO" class="vn.com.vhc.vmsc2.statistics.dao.SysLogDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+     <bean id="SYS_PARAMETERDAO" class="vn.com.vhc.vmsc2.statistics.dao.SYS_PARAMETERDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="TableConfigDAO" class="vn.com.vhc.vmsc2.statistics.dao.TableConfigDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="SysParameterDAO" class="vn.com.vhc.vmsc2.statistics.dao.SysParameterDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+     <bean id="SchedulerJobLogDAO" class="vn.com.vhc.vmsc2.statistics.dao.SchedulerJobLogDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="SchedulerJobsDAO" class="vn.com.vhc.vmsc2.statistics.dao.SchedulerJobsDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+     <bean id="ImportMappingDAO" class="vn.com.vhc.vmsc2.statistics.dao.ImportMappingDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <!-- BSC DATA 2G -->
+    <bean id="Vdybscdata2gDAO" class="vn.com.vhc.vmsc2.statistics.dao.Vdybscdata2gDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="Vhrbscdata2gDAO" class="vn.com.vhc.vmsc2.statistics.dao.Vhrbscdata2gDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="Vmnbscdata2gDAO" class="vn.com.vhc.vmsc2.statistics.dao.Vmnbscdata2gDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="Vwkbscdata2gDAO" class="vn.com.vhc.vmsc2.statistics.dao.Vwkbscdata2gDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <!-- Cell 3G QOS -->
+    <bean id="Vhrcell3gQosDAO" class="vn.com.vhc.vmsc2.statistics.dao.Vhrcell3gQosDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="Vdycell3gQosDAO" class="vn.com.vhc.vmsc2.statistics.dao.Vdycell3gQosDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="Vmncell3gQosDAO" class="vn.com.vhc.vmsc2.statistics.dao.Vmncell3gQosDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="Vwkcell3gQosDAO" class="vn.com.vhc.vmsc2.statistics.dao.Vwkcell3gQosDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <!-- CS core DAO -->
+    <bean id="VRpDyMscAuthDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyMscAuthDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="VRpDyMscChaAssDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyMscChaAssDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="VRpDyMscCipherDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyMscCipherDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="VRpDyMscLoadDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyMscLoadDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="VRpDyMscLuGloDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyMscLuGloDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="VRpDyMscLuLacDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyMscLuLacDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="VRpDyMscPagGloDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyMscPagGloDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="VRpDyMscPagLacDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyMscPagLacDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="VRpDyMscSmsDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyMscSmsDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+     <bean id="VRpDyMscTrafficDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyMscTrafficDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <!-- PS Core DAO-->
+     <bean id="VRpDySgsnAttFailCauseDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDySgsnAttFailCauseDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="VRpDySgsnAttFailCause2gDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDySgsnAttFailCause2gDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="VRpDySgsnAttFailCause3gDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDySgsnAttFailCause3gDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="VRpDySgsnAuthenPagingDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDySgsnAuthenPagingDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+     <bean id="VRpDySgsnOverviewDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDySgsnOverviewDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="VRpDySgsnOverview2gDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDySgsnOverview2gDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="VRpDySgsnOverview3gDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDySgsnOverview3gDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+     <bean id="VRpDySgsnPdpActFailDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDySgsnPdpActFailDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+     <bean id="VRpDySgsnPdpActFail2gDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDySgsnPdpActFail2gDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+     <bean id="VRpDySgsnPdpActFail3gDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDySgsnPdpActFail3gDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="VRpDySgsnRauDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDySgsnRauDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+     <bean id="VRpDySgsnRau2gDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDySgsnRau2gDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+     <bean id="VRpDySgsnRau3gDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDySgsnRau3gDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+     <bean id="VRpDySgsnTrafficDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDySgsnTrafficDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+     <bean id="VRpDySgsnCpuLoadBhDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDySgsnCpuLoadBhDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+     <bean id="mDepartmentDAO" class="vn.com.vhc.vmsc2.statistics.dao.MDepartmentDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+     <bean id="VRpDyIpbbDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyIpbbDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <bean id="VRpDyMscHoUmtsDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyMscHoUmtsDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="VRpDyMscHo2GDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyMscHo2GDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean> 
+    <bean id="VRpDyMscHo3GDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyMscHo3GDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="VRpDyMscHoGsmDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyMscHoGsmDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="VRpDyMscHoTotalDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyMscHoTotalDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <bean id="VRpDyRouteDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyRouteDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean> 
+    <bean id="VRpDyS7linkDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyS7linkDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="VRpDyS7linksetDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyS7linksetDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="VRpDyRegionConDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyRegionConDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="VRpHrBscCssrDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrBscCssrDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="VRpHrCellCssrDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrCellCssrDAOImpl">
+      	<property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <bean id="rAlarmLogDAO" class="vn.com.vhc.vmsc2.statistics.dao.RAlarmLogDAOImpl">
+   	<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="rpHrSite2g3gDAO" class="vn.com.vhc.vmsc2.statistics.dao.RpHrSite2g3gDAOImpl">
+	   <property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="rpHrCell2g3gDAO" class="vn.com.vhc.vmsc2.statistics.dao.RpHrCell2g3gDAOImpl">
+	   <property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="vRpBscLoad2gDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpBscLoad2gDAOImpl">
+	   <property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpDyNBscLoad3gDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyNBscLoad3gDAOImpl">
+	   <property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpDyNBscPcuLoad2gDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyNBscPcuLoad2gDAOImpl">
+	   <property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpDyNBscUtilBw3gDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyNBscUtilBw3gDAOImpl">
+	   <property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpDyNBscUtilCe3gDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyNBscUtilCe3gDAOImpl">
+	   <property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpDyNBscUtilTrau2gDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyNBscUtilTrau2gDAOImpl">
+	   <property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpHrIpbbTrafficDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrIpbbTrafficDAOImpl">
+	   <property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- MSC Mgw Traffiuntil -->
+	<bean id="HrMscMgwTraffutil" class="vn.com.vhc.vmsc2.statistics.dao.HrMscMgwTraffutilDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean> 
+	<bean id="DyMscMgwTraffutil" class="vn.com.vhc.vmsc2.statistics.dao.DyMscMgwTraffutilDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean> 
+	
+	<!-- MSC Mgw Acc -->
+	<bean id="HrMscMgwAcc" class="vn.com.vhc.vmsc2.statistics.dao.HrMscMgwAccDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean> 
+	<bean id="DyMscMgwAcc" class="vn.com.vhc.vmsc2.statistics.dao.DyMscMgwAccDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- Retainability STS DATA -->
+	<bean id="HrMscMgwRetain" class="vn.com.vhc.vmsc2.statistics.dao.HrMscMgwRetainDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean> 
+	<bean id="DyMscMgwRetain" class="vn.com.vhc.vmsc2.statistics.dao.DyMscMgwRetainDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- GIGABIT Ethernet STS Data -->
+	<bean id="HrMscMgwGigabitUser" class="vn.com.vhc.vmsc2.statistics.dao.HrMscMgwGigabitUserDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean> 
+	<bean id="HrMscMgwGigabit" class="vn.com.vhc.vmsc2.statistics.dao.HrMscMgwGigabitDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="DyMscMgwGigabit" class="vn.com.vhc.vmsc2.statistics.dao.DyMscMgwGigabitDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!--  Signalling Over STS data -->
+	<bean id="HrMscMgwSigOverUser" class="vn.com.vhc.vmsc2.statistics.dao.HrMscMgwSigOverUserDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean> 
+	<bean id="HrMscMgwSigOver" class="vn.com.vhc.vmsc2.statistics.dao.HrMscMgwSigOverDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="DyMscMgwSigOverDAO" class="vn.com.vhc.vmsc2.statistics.dao.DyMscMgwSigOverDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!--  MSC Pool proccess STS Data -->
+	<bean id="HrMscMgwPoolUser" class="vn.com.vhc.vmsc2.statistics.dao.HrMscMgwPoolUserDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean> 
+	<bean id="HrMscMgwPool" class="vn.com.vhc.vmsc2.statistics.dao.HrMscMgwPoolDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="DyMscMgwPool" class="vn.com.vhc.vmsc2.statistics.dao.DyMscMgwPoolDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!--  MSC SCCP STS Data -->
+	<bean id="HrMscMgwSccpUser" class="vn.com.vhc.vmsc2.statistics.dao.HrMscMgwSccpUserDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean> 
+	<bean id="HrMscMgwSccp" class="vn.com.vhc.vmsc2.statistics.dao.HrMscMgwSccpDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="DyMscMgwSccp" class="vn.com.vhc.vmsc2.statistics.dao.DyMscMgwSccpDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	
+	<!-- MSC MGW -->
+	<bean id="DyMscMgw" class="vn.com.vhc.vmsc2.statistics.dao.DyMscMgwDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean> 
+	<bean id="HrMscMgw" class="vn.com.vhc.vmsc2.statistics.dao.HrMscMgwDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- MSC MGW Late Packet-->
+	<bean id="DyMscMgwLatePack" class="vn.com.vhc.vmsc2.statistics.dao.DyMscMgwLatePackDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean> 
+	<bean id="HrMscMgwLatePack" class="vn.com.vhc.vmsc2.statistics.dao.HrMscMgwLatePackDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- MSC MGW INTERATION MESSAGING-->
+	<bean id="DyMscMgwInterativemess" class="vn.com.vhc.vmsc2.statistics.dao.DyMscMgwInterativemessDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean> 
+	<bean id="HrMscMgwInterativemess" class="vn.com.vhc.vmsc2.statistics.dao.HrMscMgwInterativemessDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- MSC MGW IP RESOURCE RESER-->
+	<bean id="DyMscMgwIpResourReser" class="vn.com.vhc.vmsc2.statistics.dao.DyMscMgwIpResourReserDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean> 
+	<bean id="HrMscMgwIpResourReser" class="vn.com.vhc.vmsc2.statistics.dao.HrMscMgwIpResourReserDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+		<!-- MSC MGW TENDAM FREE OPER-->
+	<bean id="DyMscMgwTendamfrOper" class="vn.com.vhc.vmsc2.statistics.dao.DyMscMgwTendamfrOperDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean> 
+	<bean id="HrMscMgwTendamfrOper" class="vn.com.vhc.vmsc2.statistics.dao.HrMscMgwTendamfrOperDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- MSC MGW TENDAM FREE OPER-->
+	<bean id="HrMscMgwIpIntfaceUser" class="vn.com.vhc.vmsc2.statistics.dao.HrMscMgwIpIntfaceUserDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean> 
+	<bean id="HrMscMgwIpIntface" class="vn.com.vhc.vmsc2.statistics.dao.HrMscMgwIpIntfaceDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="DyMscMgwIpIntface" class="vn.com.vhc.vmsc2.statistics.dao.DyMscMgwIpIntfaceDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<!-- MSC Mapsignal Perfomance -->
+	<bean id="DyMscMapsigiwk" class="vn.com.vhc.vmsc2.statistics.dao.DyMscMapsigiwkDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean> 
+	<bean id="HrMscMapsigiwk" class="vn.com.vhc.vmsc2.statistics.dao.HrMscMapsigiwkDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean> 
+	<!-- MSC MM -->
+	<bean id="HrMscMmBc" class="vn.com.vhc.vmsc2.statistics.dao.HrMscMmBcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean> 
+	<bean id="HrMscMm" class="vn.com.vhc.vmsc2.statistics.dao.HrMscMmDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="DyMscMm" class="vn.com.vhc.vmsc2.statistics.dao.DyMscMmDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- MSC RAB ASSIGNMENT -->
+	<bean id="DyMscRabassig" class="vn.com.vhc.vmsc2.statistics.dao.DyMscRabassigDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean> 
+	<bean id="HrMscRabassig" class="vn.com.vhc.vmsc2.statistics.dao.HrMscRabassigDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean> 
+	<bean id="HrMscRabassigObj" class="vn.com.vhc.vmsc2.statistics.dao.HrMscRabassigObjDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean> 
+	<bean id="HrMscRabassigObjbc" class="vn.com.vhc.vmsc2.statistics.dao.HrMscRabassigObjbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean> 
+	
+	<!-- Msc Trunkroute Call -->
+	
+	<bean id="HrMscTrunkrouteCall" class="vn.com.vhc.vmsc2.statistics.dao.HrMscTrunkrouteCallDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="HrMscTrunkroute" class="vn.com.vhc.vmsc2.statistics.dao.HrMscTrunkrouteDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="DyMscTrunkrouteCall" class="vn.com.vhc.vmsc2.statistics.dao.DyMscTrunkrouteCallDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="HrMscTrunkrouteBc" class="vn.com.vhc.vmsc2.statistics.dao.HrMscTrunkrouteBcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<!-- VLR SUBS -->
+	<bean id="DyMscVlrsubsBCDAO" class="vn.com.vhc.vmsc2.statistics.dao.DyMscVlrsubsBCDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="HrMscVlrsubsBCDAO" class="vn.com.vhc.vmsc2.statistics.dao.HrMscVlrsubsBCDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean> 
+	<!-- Msc Lossroute Call -->
+	
+	<bean id="HrMscLossroutebc" class="vn.com.vhc.vmsc2.statistics.dao.HrMscLossroutebcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="HrMsclosroute" class="vn.com.vhc.vmsc2.statistics.dao.HrMsclosrouteDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="HrMscLoss" class="vn.com.vhc.vmsc2.statistics.dao.HrMscLossDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="DyMscLossRoute" class="vn.com.vhc.vmsc2.statistics.dao.DyMscLossRouteDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<!-- MSC Authentication -->
+	<bean id="DyMscAuthen" class="vn.com.vhc.vmsc2.statistics.dao.DyMscAuthenDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="DyMscCallSetupBc" class="vn.com.vhc.vmsc2.statistics.dao.DyMscCallSetupBcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="DyMscChaAssig" class="vn.com.vhc.vmsc2.statistics.dao.DyMscChaAssigDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="DyMsccpload" class="vn.com.vhc.vmsc2.statistics.dao.DyMsccploadDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="DyMsclocationupdate" class="vn.com.vhc.vmsc2.statistics.dao.DyMsclocationupdateDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="DyMscLuArea" class="vn.com.vhc.vmsc2.statistics.dao.DyMscLuAreaDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="DyMscPaging" class="vn.com.vhc.vmsc2.statistics.dao.DyMscPagingDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="DyMscPagingArea" class="vn.com.vhc.vmsc2.statistics.dao.DyMscPagingAreaDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="DyMscsms" class="vn.com.vhc.vmsc2.statistics.dao.DyMscsmsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="DyMsctraff" class="vn.com.vhc.vmsc2.statistics.dao.DyMsctraffDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	
+	<bean id="HrMscAuthen" class="vn.com.vhc.vmsc2.statistics.dao.HrMscAuthenDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="HrMscCallSetupBc" class="vn.com.vhc.vmsc2.statistics.dao.HrMscCallSetupBcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="HrMscChaAssig" class="vn.com.vhc.vmsc2.statistics.dao.HrMscChaAssigDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="HrMscChaAssigbcDAO" class="vn.com.vhc.vmsc2.statistics.dao.HrMscChaAssigbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="HrMsccpload" class="vn.com.vhc.vmsc2.statistics.dao.HrMsccploadDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="HrMsclocationupdatebc" class="vn.com.vhc.vmsc2.statistics.dao.HrMsclocationupdatebcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="HrMsscLocaUpdateDAO" class="vn.com.vhc.vmsc2.statistics.dao.HrMsscLocaUpdateDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="HrMscLuArea" class="vn.com.vhc.vmsc2.statistics.dao.HrMscLuAreaDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="HrMscLuAreabc" class="vn.com.vhc.vmsc2.statistics.dao.HrMscLuAreabcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="HrMscLuAreaObj" class="vn.com.vhc.vmsc2.statistics.dao.HrMscLuAreaObjDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	
+	
+	<bean id="HrMscPaging" class="vn.com.vhc.vmsc2.statistics.dao.HrMscPagingDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="HrMscPagingArea" class="vn.com.vhc.vmsc2.statistics.dao.HrMscPagingAreaDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="HrMscPagingAreaBc" class="vn.com.vhc.vmsc2.statistics.dao.HrMscPagingAreaBcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="HrMscPagingAreaObj" class="vn.com.vhc.vmsc2.statistics.dao.HrMscPagingAreaObjDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="HrMscPagingAreaObjBc" class="vn.com.vhc.vmsc2.statistics.dao.HrMscPagingAreaObjBcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="HrMscPagingbc" class="vn.com.vhc.vmsc2.statistics.dao.HrMscPagingbcDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="HrMscsms" class="vn.com.vhc.vmsc2.statistics.dao.HrMscsmsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="HrMsctraff" class="vn.com.vhc.vmsc2.statistics.dao.HrMsctrafficDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="VRpDyMscMgwCPLoadDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyMscMgwCPLoadDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpDyMscRetainabilityDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyMscRetainabilityDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpHrMscMgwCPLoadDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrMscMgwCPLoadDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpHrMscRetainabilityDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrMscRetainabilityDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<!-- SUMMARY CHART -->
+	<bean id="VRpDyMscSummaryDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyMscSummaryDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpDyMscMgwSummaryDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyMscMgwSummaryDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpDyMscSummaryChartDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyMscSummaryChartDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<!-- CORE CSI -->
+	<bean id="VRpDyOneaaaDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyOneaaaDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpDyPcsDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyPcsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpDyNdsDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyNdsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpDyDnsDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyDnsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpDyCsiCmdDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCsiCmdDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpDySrxDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDySrxDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpHrCsiCmdVolatilityDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrCsiCmdVolatilityDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpDyMgwLoadDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyMgwLoadDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpDyIpbbCpuMem" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyIpbbCpuMemDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="HCsi" class="vn.com.vhc.vmsc2.statistics.dao.HCsiDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpDyNodeb" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyNodebDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpDyMgwUtility" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyMgwUtilityDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="HIpbbGraphTemplateGraph" class="vn.com.vhc.vmsc2.statistics.dao.HIpbbGraphTemplateGraphDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="HBscLac" class="vn.com.vhc.vmsc2.statistics.dao.HBscLacDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpDyMscVlrSubsCnDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyMscVlrSubsCnDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpDyMscVlrSubsLacDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyMscVlrSubsLacDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpHrMscVlrSubsLacDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrMscVlrSubsLacDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpDyIpbbSlaDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyIpbbSlaDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="HQualityNetworkDAO" class="vn.com.vhc.vmsc2.statistics.dao.HQualityNetworkDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpDyCellMovementDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCellMovementDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpDyCell3GMovementDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCell3GMovementDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpDyCsiCmdLicenceDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyCsiCmdLicenceDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpDyDns2DAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyDns2DAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="RpHrKpiBadDAO" class="vn.com.vhc.vmsc2.statistics.dao.RpHrKpiBadDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<!-- Create by Ninhnh: 24/09/15 
+		 Edited : 25/09/15, 28/09/15, 29/09/15, 30/09/15, 02/10/15 
+		 Edit : 12/10/15 
+	-->
+	<bean id="VRpQrCellData2gDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpQrCellData2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpYrCellData2gDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpYrCellData2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpQrBscData2gDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpQrBscData2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpYrBscData2gDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpYrBscData2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpQrDistrictData2gDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpQrDistrictData2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpYrDistrictData2gDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpYrDistrictData2gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpQrCell3GDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpQrCell3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="VRpYrCell3GDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpYrCell3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<!-- EndNinhnh -->
+	
+	<!-- Create by Anhnt -->
+	<bean id="VRpQrCellQosDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpQrCellQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpYrCellQosDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpYrCellQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<!-- EndAnhnt -->
+	
+	<!-- Created by TrungNQ -->
+	<bean id="VRpQrCellGprsCsDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpQrCellGprsCsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="VRpYrCellGprsCsDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpYrCellGprsCsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="VRpQrBscGprsCsDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpQrBscGprsCsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>		
+	<bean id="VRpYrBscGprsCsDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpYrBscGprsCsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>		
+		<bean id="VRpQrDistrictGprsCsDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpQrDistrictGprsCsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="VRpYrDistrictGprsCsDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpYrDistrictGprsCsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+		<bean id="VRpQrProvinceGprsCsDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpQrProvinceGprsCsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+ 	<bean id="VRpYrProvinceGprsCsDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpYrProvinceGprsCsDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+ 	<bean id="VRpQrBscQosDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpQrBscQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	 	
+ 	<bean id="VRpYrBscQosDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpYrBscQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	 	
+	 <bean id="VRpQrDistrictQosDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpQrDistrictQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="VRpYrDistrictQosDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpYrDistrictQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+		 <bean id="VRpQrProvinceQosDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpQrProvinceQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="VRpYrProvinceQosDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpYrProvinceQosDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="VRpQrBsc3GDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpQrBsc3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpYrBsc3GDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpYrBsc3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpQrDistrict3GDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpQrDistrict3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="VRpYrDistrict3GDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpYrDistrict3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="VRpQrProvince3GDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpQrProvince3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>		
+	<bean id="VRpYrProvince3GDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpYrProvince3GDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<!-- end Trung -->
+	
+	<bean id="HTransmissionDeviceDAO" class="vn.com.vhc.vmsc2.statistics.dao.HTransmissionDeviceDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	
+	<bean id="TaiThietBiDAO" class="vn.com.vhc.vmsc2.statistics.dao.TaiThietBiDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	
+	<bean id="HIpbbNodeBDao" class="vn.com.vhc.vmsc2.statistics.dao.HIpbbNodeBDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	
+	<bean id="DyIpbbLinkNodeBDAO" class="vn.com.vhc.vmsc2.statistics.dao.DyIpbbLinkNodeBDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	
+	<bean id="VRpHrPASR3gDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpHrPASR3gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>	
+	<bean id="VRpDyPASR3gDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyPASR3gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpWkPASR3gDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpWkPASR3gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpMnPASR3gDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpMnPASR3gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpQrPASR3gDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpQrPASR3gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpYrPASR3gDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpYrPASR3gDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="VRpDyOptimalDAO" class="vn.com.vhc.vmsc2.statistics.dao.VRpDyOptimalDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="monitorKpi2gMailDAO" class="vn.com.vhc.vmsc2.statistics.dao.MonitorKpi2gMailDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="monitorKpi3gMailDAO" class="vn.com.vhc.vmsc2.statistics.dao.MonitorKpi3gMailDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="HrMtclDistrictDAO" class="vn.com.vhc.vmsc2.statistics.dao.HrMtclDistrictDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="DyMtclDistrictDAO" class="vn.com.vhc.vmsc2.statistics.dao.DyMtclDistrictDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+
+	<bean id="HrMtclProvinceDAO" class="vn.com.vhc.vmsc2.statistics.dao.HrMtclProvinceDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="DyMtclProvinceDAO" class="vn.com.vhc.vmsc2.statistics.dao.DyMtclProvinceDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	
+	<bean id="HrMtclCtkdDAO" class="vn.com.vhc.vmsc2.statistics.dao.HrMtclCtkdDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="DyMtclCtkdDAO" class="vn.com.vhc.vmsc2.statistics.dao.DyMtclCtkdDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="HrMtclBranchDAO" class="vn.com.vhc.vmsc2.statistics.dao.HrMtclBranchDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="DyMtclBranchDAO" class="vn.com.vhc.vmsc2.statistics.dao.DyMtclBranchDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="HrMtclDvtDAO" class="vn.com.vhc.vmsc2.statistics.dao.HrMtclDvtDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="DyMtclDvtDAO" class="vn.com.vhc.vmsc2.statistics.dao.DyMtclDvtDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="HDistrictCodeDAO" class="vn.com.vhc.vmsc2.statistics.dao.HDistrictCodeDAOImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+</beans>

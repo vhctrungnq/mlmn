@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<decorators defaultdir="/decorators">
+	<decorator name="main" page="index.jsp">
+		<pattern>/*</pattern>
+	</decorator>
+	<decorator name="reload" page="reload.jsp">
+		<pattern>/coreService/view.htm</pattern>
+	</decorator>
+	<decorator name="login" page="main-slides.jsp">
+		<pattern>/loginDefault.htm</pattern>
+	</decorator>
+	<decorator name="mainSlides" page="main-slides.jsp">
+      <pattern>/map/list.htm</pattern>
+   </decorator>
+</decorators>
+

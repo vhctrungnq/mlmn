@@ -1,0 +1,15 @@
+<decorators defaultdir="/decorators">
+   <decorator name="main" page="main-web.jsp">
+      <pattern>/*</pattern>
+   </decorator>
+   
+   <decorator name="mainSlides" page="main-slides.jsp">
+      <pattern>/alarm/slides-tong-hop-bao-cao/list.htm</pattern>
+      <pattern>/alarm/slides-tong-hop-bao-cao/tl-cb-da-ket-thuc.htm</pattern>
+      <pattern>/alarm/slides-tong-hop-bao-cao/bd-sl-canh-bao.htm</pattern>
+      <pattern>/alarm/slides-tong-hop-bao-cao/bd-sl-canh-bao-nhieu-nhat.htm</pattern>
+      <pattern>/map/list.htm</pattern>
+      <pattern>/loginDefault.htm</pattern>
+   </decorator>
+   
+</decorators>
